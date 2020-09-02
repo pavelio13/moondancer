@@ -8,21 +8,33 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "KinematicBody2D",
+"class": "Actor",
+"language": "GDScript",
+"path": "res://Character/Actors.gd"
+}, {
+"base": "Actor",
+"class": "Player",
+"language": "GDScript",
+"path": "res://Character/Player.gd"
+} ]
 _global_script_class_icons={
-
+"Actor": "",
+"Player": ""
 }
 
 [application]
 
 config/name="Moondancer"
+run/main_scene="res://Game.tscn"
 config/icon="res://icon.png"
 
 [display]
 
 window/size/width=1280
 window/size/height=720
-window/size/fullscreen=true
+window/size/borderless=true
 window/stretch/mode="2d"
 window/stretch/aspect="expand"
 
