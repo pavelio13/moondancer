@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/botonAgua.png-6cf720a001d7d9cb5e0e41cdb3c9ef1b.stex"
+path="res://.import/botonAire.png-09b73399795c0227dfba9ee4e7b051df.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/botonAgua.png"
-dest_files=[ "res://.import/botonAgua.png-6cf720a001d7d9cb5e0e41cdb3c9ef1b.stex" ]
+source_file="res://Assets/UI/botonAire.png"
+dest_files=[ "res://.import/botonAire.png-09b73399795c0227dfba9ee4e7b051df.stex" ]
 
 [params]
 

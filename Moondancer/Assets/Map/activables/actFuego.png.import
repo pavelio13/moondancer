@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/botonPlanta.png-90e35340a1bb12e1eb05a47ac3fcc3c4.stex"
+path="res://.import/actFuego.png-9c1950d2d733338a5a532b2c49c14c12.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/botonPlanta.png"
-dest_files=[ "res://.import/botonPlanta.png-90e35340a1bb12e1eb05a47ac3fcc3c4.stex" ]
+source_file="res://Assets/Map/activables/actFuego.png"
+dest_files=[ "res://.import/actFuego.png-9c1950d2d733338a5a532b2c49c14c12.stex" ]
 
 [params]
 

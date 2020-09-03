@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/botonFuego.png-0c7595651a30ded91dd983f1d4cf41b2.stex"
+path="res://.import/sueloIzqFino.png-c9501988b3fb0a80284e9b92bf3417b9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/botonFuego.png"
-dest_files=[ "res://.import/botonFuego.png-0c7595651a30ded91dd983f1d4cf41b2.stex" ]
+source_file="res://Assets/Map/sueloFinal/sueloIzqFino.png"
+dest_files=[ "res://.import/sueloIzqFino.png-c9501988b3fb0a80284e9b92bf3417b9.stex" ]
 
 [params]
 
