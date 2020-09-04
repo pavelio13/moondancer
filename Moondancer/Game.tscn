@@ -16,3 +16,4 @@ position = Vector2( -802.867, -1218.54 )
 [node name="InterfaceLayer" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" parent="InterfaceLayer" instance=ExtResource( 4 )]
+visible = false

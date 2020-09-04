@@ -1,4 +1,5 @@
 extends KinematicBody2D
+class_name Player
 
 const TARGET_FPS = 60
 const ACCELERATION = 400
