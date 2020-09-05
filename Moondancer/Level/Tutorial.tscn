@@ -4,7 +4,7 @@
 [ext_resource path="res://Level/Rebote.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 15.3102, 7.69524 )
+extents = Vector2( 17.3533, 7.69524 )
 
 [node name="Tutorial" type="Node2D"]
 
@@ -19,8 +19,7 @@ tile_data = PoolIntArray( -524206, 8, 0, -458670, 5, 0, -393134, 5, 0, -327598, 
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rebote1"]
-position = Vector2( 8514.19, 813.937 )
+position = Vector2( 8719.12, 845.448 )
 scale = Vector2( 20, 50 )
 shape = SubResource( 1 )
-[connection signal="body_entered" from="Rebote1" to="Rebote1" method="_on_Rebote1_body_entered"]
 [connection signal="body_exited" from="Rebote1" to="Rebote1" method="_on_Rebote1_body_exited"]
