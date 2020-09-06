@@ -10,20 +10,32 @@ const GRAVITY = 100
 const JUMP_FORCE = 3500
 
 var motion = Vector2.ZERO
+var state = 0
+var direction = 1
 
 onready var sprite = $Sprite
 onready var animationPlayer = $AnimationPlayer
 
 func _physics_process(delta):
-	var x_input = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
+#	var x_input = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
+	var x_input = MAX_SPEED * direction
 	
-	if x_input != 0:
-		animationPlayer.play("Walk")
-		motion.x += x_input * ACCELERATION * delta * TARGET_FPS
-		motion.x = clamp(motion.x, -MAX_SPEED, MAX_SPEED)
-		sprite.flip_h = x_input < 0
-	else:
-		animationPlayer.play("Walk")
+	if state == 0:
+		if x_input != 0:
+			$Sprite2.hide()
+			$Sprite.show()
+			animationPlayer.play("Walk")
+			motion.x += x_input * ACCELERATION * delta * TARGET_FPS
+			motion.x = clamp(motion.x, -MAX_SPEED, MAX_SPEED)
+			$Sprite.flip_h = x_input < 0
+			$Sprite2.flip_h = x_input < 0
+		else:
+			animationPlayer.play("Walk")
+	
+	elif state == 1:
+		$Sprite.hide()
+		$Sprite2.show()
+		animationPlayer.play("WaterWall")
 	
 	motion.y += GRAVITY * delta * TARGET_FPS
 	
@@ -33,6 +45,12 @@ func _physics_process(delta):
 			
 		if Input.is_action_just_pressed("ui_up"):
 			motion.y = -JUMP_FORCE
+			
+		if Input.is_action_just_pressed("ui_down"):
+			$Sprite.hide()
+			$Sprite2.show()
+			animationPlayer.play("WaterWall")
+			state = 3
 	else:
 		animationPlayer.play("Walk")
 		
@@ -43,3 +61,8 @@ func _physics_process(delta):
 			motion.x = lerp(motion.x, 0, AIR_RESISTANCE * delta)
 	
 	motion = move_and_slide(motion, Vector2.UP)
+
+
+func change_direction():
+	direction *= -1
+	state = 0
