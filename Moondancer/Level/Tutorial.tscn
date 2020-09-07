@@ -1,10 +1,14 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Level/TileSet.tres" type="TileSet" id=1]
 [ext_resource path="res://Level/Rebote.gd" type="Script" id=2]
+[ext_resource path="res://Level/Caida.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 23.3936, 7.69524 )
+extents = Vector2( 11.8778, 7.69524 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 24.7165, 9.51408 )
 
 [node name="Tutorial" type="Node2D"]
 
@@ -19,7 +23,7 @@ tile_data = PoolIntArray( -524206, 8, 0, -458670, 5, 0, -393134, 5, 0, -327598, 
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rebote1"]
-position = Vector2( 8568.1, 837.897 )
+position = Vector2( 8360.45, 845.448 )
 scale = Vector2( 20, 50 )
 shape = SubResource( 1 )
 
@@ -30,5 +34,15 @@ script = ExtResource( 2 )
 position = Vector2( 2984.14, 819.019 )
 scale = Vector2( 20, 50 )
 shape = SubResource( 1 )
+
+[node name="Caida1" type="Area2D" parent="."]
+position = Vector2( 520, 144 )
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Caida1"]
+position = Vector2( 4863.86, 1146.12 )
+scale = Vector2( 25, 25 )
+shape = SubResource( 2 )
 [connection signal="body_exited" from="Rebote1" to="Rebote1" method="_on_Rebote1_body_exited"]
 [connection signal="body_exited" from="Rebote2" to="Rebote2" method="_on_Rebote1_body_exited"]
+[connection signal="body_entered" from="Caida1" to="Caida1" method="_on_Caida1_body_entered"]
