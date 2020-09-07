@@ -38,6 +38,7 @@ func _physics_process(delta):
 			$Sprite2.hide()
 			$Sprite3.hide()
 			$Sprite4.hide()
+			$Sprite5.hide()
 			$Sprite.show()
 			animationPlayer.play("Walk")
 			motion.x += x_input * ACCELERATION * delta * TARGET_FPS
@@ -46,6 +47,7 @@ func _physics_process(delta):
 			$Sprite2.flip_h = x_input < 0
 			$Sprite3.flip_h = x_input < 0
 			$Sprite4.flip_h = x_input < 0
+			$Sprite5.flip_h = x_input < 0
 		if last_pos == position.x:
 			$Sprite.hide()
 			$Sprite5.show()
@@ -56,12 +58,18 @@ func _physics_process(delta):
 	
 	elif state == WATERWALL:
 		$Sprite.hide()
+		$Sprite3.hide()
+		$Sprite4.hide()
+		$Sprite5.hide()
 		$Sprite2.show()
 		aquaButton.visible = false
 		animationPlayer.play("WaterWall")
 		
 	elif state == WATERNULL:
 		$Sprite.hide()
+		$Sprite2.hide()
+		$Sprite4.hide()
+		$Sprite5.hide()
 		$Sprite3.show()
 		aquaButton.visible = false
 		animationPlayer.play("WaterNull")
@@ -69,8 +77,11 @@ func _physics_process(delta):
 	elif state == WATERFALL:
 		$Sprite.hide()
 		$Sprite3.hide()
+		$Sprite2.hide()
+		$Sprite5.hide()
 		$Sprite4.show()
 		aquaButton.visible = false
+		motion.x = 700*direction
 		animationPlayer.play("WaterFall")
 	
 	motion.y += GRAVITY * delta * TARGET_FPS
@@ -82,11 +93,11 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed("ui_up"):
 			motion.y = -JUMP_FORCE
 			
-		if Input.is_action_just_pressed("ui_down"):
+		if Input.is_action_just_pressed("ui_down") and state != WATERFALL:
 			state = WATERNULL
 			
 	else:
-		animationPlayer.play("Walk")
+#		animationPlayer.play("Walk")
 		
 		if Input.is_action_just_released("ui_up") and motion.y < -JUMP_FORCE/2:
 			motion.y = -JUMP_FORCE/2
