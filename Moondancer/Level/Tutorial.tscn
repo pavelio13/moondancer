@@ -5,7 +5,7 @@
 [ext_resource path="res://Level/Caida.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 11.8778, 7.69524 )
+extents = Vector2( 11.8778, 2.0795 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 24.7165, 9.51408 )
@@ -23,7 +23,7 @@ tile_data = PoolIntArray( -524206, 8, 0, -458670, 5, 0, -393134, 5, 0, -327598, 
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rebote1"]
-position = Vector2( 8360.45, 845.448 )
+position = Vector2( 8414.19, 1102.83 )
 scale = Vector2( 20, 50 )
 shape = SubResource( 1 )
 
@@ -31,7 +31,7 @@ shape = SubResource( 1 )
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rebote2"]
-position = Vector2( 2984.14, 819.019 )
+position = Vector2( 3015.25, 1113.18 )
 scale = Vector2( 20, 50 )
 shape = SubResource( 1 )
 

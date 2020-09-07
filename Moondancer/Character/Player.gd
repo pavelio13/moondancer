@@ -19,6 +19,7 @@ enum {
 var motion = Vector2.ZERO
 var state = IDLE
 var direction = 1
+var last_pos = 0.0
 
 onready var sprite = $Sprite
 onready var animationPlayer = $AnimationPlayer
@@ -45,8 +46,13 @@ func _physics_process(delta):
 			$Sprite2.flip_h = x_input < 0
 			$Sprite3.flip_h = x_input < 0
 			$Sprite4.flip_h = x_input < 0
-		else:
-			animationPlayer.play("Walk")
+		if last_pos == position.x:
+			$Sprite.hide()
+			$Sprite5.show()
+			$Sprite5.flip_h = x_input < 0
+			animationPlayer.play("Die")
+			set_physics_process(false)
+		last_pos = position.x
 	
 	elif state == WATERWALL:
 		$Sprite.hide()
