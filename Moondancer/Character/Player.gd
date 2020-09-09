@@ -60,7 +60,7 @@ func _physics_process(delta):
 			state = FIRE
 	
 	if state == IDLE:
-		enableButtons()
+		changeButtons(true, true, true, true)
 		if x_input != 0:
 			animationPlayer.play("Walk")
 			motion.x += x_input * ACCELERATION * delta * TARGET_FPS
@@ -73,34 +73,37 @@ func _physics_process(delta):
 		last_pos = position.x
 	
 	elif state == WATERWALL:
-		disableButtons()
+		changeButtons(true, false, false, false)
 		animationPlayer.play("WaterWall")
 		
 	elif state == WATERNULL:
-		disableButtons()
+		changeButtons(true, false, false, false)
 		animationPlayer.play("WaterNull")
 	
 	elif state == WATERFALL:
-		disableButtons()
+		changeButtons(true, false, false, false)
 		motion.x = 700*direction
 		animationPlayer.play("WaterFall")
 	
 	elif state == JUMP:
-		disableButtons()
+		changeButtons(false, true, false, false)
 		animationPlayer.play("Earth")
+		print("1")
 		if is_on_floor():
+			print("2")
 			if Input.is_action_just_pressed("ui_up"):
+				print("3")
 				motion.y = -JUMP_FORCE
 		else:
 			if Input.is_action_just_released("ui_up") and motion.y < -JUMP_FORCE/2:
 				motion.y = -JUMP_FORCE/2
 		
 	elif state == AIR:
-		disableButtons()
+		changeButtons(false, false, false, false)
 		animationPlayer.play("Air")
 		
 	elif state == FIRE:
-		disableButtons()
+		changeButtons(false, false, false, false)
 		animationPlayer.play("Fire")
 	
 	motion.y += GRAVITY * delta * TARGET_FPS	
@@ -115,15 +118,9 @@ func change_state(new_state):
 	state = new_state
 	
 
-func enableButtons():
-	aquaButton.visible = true
-	earthButton.visible = true
-	windButton.visible = true
-	fireButton.visible = true
-	
-	
-func disableButtons():
-	aquaButton.visible = false
-	earthButton.visible = false
-	windButton.visible = false
-	fireButton.visible = false
+func changeButtons(aqua, earth, wind, fire):
+	aquaButton.visible = aqua
+	earthButton.visible = earth
+	windButton.visible = wind
+	fireButton.visible = fire
+

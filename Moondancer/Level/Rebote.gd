@@ -2,8 +2,8 @@ extends Area2D
 
 var is_alive = false
 
-func _process(delta):
-	if get_overlapping_bodies().size() == 2 and Input.is_action_pressed("ui_down"):
+func _physics_process(delta):
+	if get_overlapping_bodies().size() > 1 and Input.is_action_pressed("ui_down"):
 		is_alive = true
 		get_overlapping_bodies()[1].state = 1
 
