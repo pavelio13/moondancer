@@ -6,14 +6,17 @@ const ACCELERATION = 400
 const MAX_SPEED = 1200
 const FRICTION = 1
 const AIR_RESISTANCE = 1
-const GRAVITY = 100
-const JUMP_FORCE = 3500
+const GRAVITY = 120
+const JUMP_FORCE = 5000
 
 enum {
 	IDLE,
 	WATERWALL,
 	WATERNULL,
-	WATERFALL
+	WATERFALL,
+	JUMP,
+	AIR,
+	FIRE
 }
 
 var motion = Vector2.ZERO
@@ -32,79 +35,75 @@ func _physics_process(delta):
 #	var x_input = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	var x_input = MAX_SPEED * direction
 	
-	if state == IDLE:
-		aquaButton.visible = true
-		if x_input != 0:
-			$Sprite2.hide()
-			$Sprite3.hide()
-			$Sprite4.hide()
-			$Sprite5.hide()
-			$Sprite.show()
-			animationPlayer.play("Walk")
-			motion.x += x_input * ACCELERATION * delta * TARGET_FPS
-			motion.x = clamp(motion.x, -MAX_SPEED, MAX_SPEED)
-			$Sprite.flip_h = x_input < 0
-			$Sprite2.flip_h = x_input < 0
-			$Sprite3.flip_h = x_input < 0
-			$Sprite4.flip_h = x_input < 0
-			$Sprite5.flip_h = x_input < 0
-		if last_pos == position.x:
-			$Sprite.hide()
-			$Sprite5.show()
-			$Sprite5.flip_h = x_input < 0
-			animationPlayer.play("Die")
-			set_physics_process(false)
-		last_pos = position.x
-	
-	elif state == WATERWALL:
-		$Sprite.hide()
-		$Sprite3.hide()
-		$Sprite4.hide()
-		$Sprite5.hide()
-		$Sprite2.show()
-		aquaButton.visible = false
-		animationPlayer.play("WaterWall")
-		
-	elif state == WATERNULL:
-		$Sprite.hide()
-		$Sprite2.hide()
-		$Sprite4.hide()
-		$Sprite5.hide()
-		$Sprite3.show()
-		aquaButton.visible = false
-		animationPlayer.play("WaterNull")
-	
-	elif state == WATERFALL:
-		$Sprite.hide()
-		$Sprite3.hide()
-		$Sprite2.hide()
-		$Sprite5.hide()
-		$Sprite4.show()
-		aquaButton.visible = false
-		motion.x = 700*direction
-		animationPlayer.play("WaterFall")
-	
-	motion.y += GRAVITY * delta * TARGET_FPS
-	
 	if is_on_floor():
 		if x_input == 0:
 			motion.x = lerp(motion.x, 0, FRICTION * delta)
 			
 		if Input.is_action_just_pressed("ui_up"):
-			motion.y = -JUMP_FORCE
+			$Light2D.color = Color(0, 200, 0, 0.1)
+			$Light2D.energy = 0.15
+			state = JUMP
 			
 		if Input.is_action_just_pressed("ui_down") and state != WATERFALL:
+			$Light2D.color = Color(0, 0, 200, 0.1)
+			$Light2D.energy = 0.15
 			state = WATERNULL
 			
-	else:
-#		animationPlayer.play("Walk")
-		
-		if Input.is_action_just_released("ui_up") and motion.y < -JUMP_FORCE/2:
-			motion.y = -JUMP_FORCE/2
-		
-		if x_input == 0:
-			motion.x = lerp(motion.x, 0, AIR_RESISTANCE * delta)
+		if Input.is_action_just_pressed("ui_right") and state == IDLE:
+			$Light2D.color = Color(100, 100, 0, 0.1)
+			$Light2D.energy = 0.15
+			state = AIR
+			
+		if Input.is_action_just_pressed("ui_left") and state == IDLE:
+			$Light2D.color = Color(200, 0, 0, 0.1)
+			$Light2D.energy = 0.15
+			state = FIRE
 	
+	if state == IDLE:
+		enableButtons()
+		if x_input != 0:
+			animationPlayer.play("Walk")
+			motion.x += x_input * ACCELERATION * delta * TARGET_FPS
+			motion.x = clamp(motion.x, -MAX_SPEED, MAX_SPEED)
+			$Sprite.flip_h = x_input < 0
+			
+		if int(last_pos) == int(position.x):
+			animationPlayer.play("Die")
+			set_physics_process(false)
+		last_pos = position.x
+	
+	elif state == WATERWALL:
+		disableButtons()
+		animationPlayer.play("WaterWall")
+		
+	elif state == WATERNULL:
+		disableButtons()
+		animationPlayer.play("WaterNull")
+	
+	elif state == WATERFALL:
+		disableButtons()
+		motion.x = 700*direction
+		animationPlayer.play("WaterFall")
+	
+	elif state == JUMP:
+		disableButtons()
+		animationPlayer.play("Earth")
+		if is_on_floor():
+			if Input.is_action_just_pressed("ui_up"):
+				motion.y = -JUMP_FORCE
+		else:
+			if Input.is_action_just_released("ui_up") and motion.y < -JUMP_FORCE/2:
+				motion.y = -JUMP_FORCE/2
+		
+	elif state == AIR:
+		disableButtons()
+		animationPlayer.play("Air")
+		
+	elif state == FIRE:
+		disableButtons()
+		animationPlayer.play("Fire")
+	
+	motion.y += GRAVITY * delta * TARGET_FPS	
 	motion = move_and_slide(motion, Vector2.UP)
 
 
@@ -114,3 +113,17 @@ func change_direction():
 
 func change_state(new_state):
 	state = new_state
+	
+
+func enableButtons():
+	aquaButton.visible = true
+	earthButton.visible = true
+	windButton.visible = true
+	fireButton.visible = true
+	
+	
+func disableButtons():
+	aquaButton.visible = false
+	earthButton.visible = false
+	windButton.visible = false
+	fireButton.visible = false
