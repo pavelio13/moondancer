@@ -24,6 +24,10 @@ config/name="Moondancer"
 run/main_scene="res://Game.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Stats="*res://Character/Stats.gd"
+
 [display]
 
 window/size/width=1280
@@ -47,6 +51,8 @@ toggle_pause={
 
 [rendering]
 
+quality/driver/driver_name="GLES2"
+vram_compression/import_etc=true
 environment/default_environment="res://default_env.tres"
 
 [world]

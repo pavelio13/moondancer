@@ -34,7 +34,6 @@ onready var fireButton = $UI/Fire
 onready var windButton = $UI/Wind
 
 func _physics_process(delta):
-#	var x_input = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	var x_input = MAX_SPEED * direction
 	
 	if is_on_floor():
@@ -42,23 +41,23 @@ func _physics_process(delta):
 			motion.x = lerp(motion.x, 0, FRICTION * delta)
 			
 		if Input.is_action_just_pressed("ui_up"):
-			$Light2D.color = Color(30, 221, 30, 0.1)
-			$Light2D.energy = 0.25
+			$Light2D.color = Color("#1edd1e")
+			$Light2D.energy = 0.75
 			state = JUMP
 			
 		if Input.is_action_just_pressed("ui_down") and state != WATERFALL:
-			$Light2D.color = Color(40, 170, 228, 0.1)
-			$Light2D.energy = 0.25
+			$Light2D.color = Color("#28aae4")
+			$Light2D.energy = 0.75
 			state = WATERNULL
 			
 		if Input.is_action_just_pressed("ui_right") and state == IDLE:
-			$Light2D.color = Color(253, 253, 0, 0.1)
-			$Light2D.energy = 0.25
+			$Light2D.color = Color("#fdfd00")
+			$Light2D.energy = 0.75
 			state = AIR
 			
 		if Input.is_action_just_pressed("ui_left") and state == IDLE:
-			$Light2D.color = Color(244, 70, 35, 0.1)
-			$Light2D.energy = 0.25
+			$Light2D.color = Color("#f44623")
+			$Light2D.energy = 0.75
 			state = FIRE
 	
 	if state == IDLE:
@@ -78,6 +77,12 @@ func _physics_process(delta):
 		if int(last_pos) == int(position.x):
 			animationPlayer.play("Die")
 			set_physics_process(false)
+			yield(get_tree().create_timer(2), "timeout")
+			set_physics_process(true)
+			position = Stats.spawnpoint
+			direction = Stats.direction
+			$Sprite.modulate = Color(1,1,1,1)
+			
 		last_pos = position.x
 	
 	elif state == WATERWALL:

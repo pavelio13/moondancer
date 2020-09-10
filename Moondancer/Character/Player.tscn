@@ -278,13 +278,13 @@ light_mask = 2
 texture = ExtResource( 1 )
 vframes = 7
 hframes = 13
-frame = 1
+frame = 78
 
 [node name="Light2D" type="Light2D" parent="."]
 light_mask = 2
 texture = ExtResource( 7 )
 texture_scale = 4.0
-energy = 0.1
+energy = 0.75
 shadow_enabled = true
 
 [node name="Light2D2" type="Light2D" parent="."]
@@ -292,7 +292,7 @@ light_mask = 2
 rotation = 0.523599
 scale = Vector2( 0.721687, 1.66428 )
 texture = ExtResource( 7 )
-energy = 0.7
+energy = 0.75
 range_item_cull_mask = 2
 shadow_enabled = true
 shadow_item_cull_mask = 2
@@ -348,10 +348,9 @@ action = "ui_right"
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground"]
-visible = false
 scale = Vector2( 1.0005, 1.00583 )
 texture = ExtResource( 8 )
 centered = false
 
 [node name="Position2D" type="Position2D" parent="."]
-position = Vector2( 70.9354, -73.4523 )
+position = Vector2( 63.6064, -40.1354 )
