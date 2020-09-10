@@ -16,39 +16,38 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0, 0.211765 )
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -175.0
-margin_top = -137.0
-margin_right = 175.0
-margin_bottom = 138.0
-alignment = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="VBoxContainer"]
-margin_top = 86.0
-margin_right = 350.0
-margin_bottom = 100.0
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.204433
+anchor_top = 0.305072
+anchor_right = 0.805214
+anchor_bottom = 0.324516
+margin_top = 1.52588e-05
 text = "Game Paused"
 align = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
-[node name="ResumeButton" type="Button" parent="VBoxContainer"]
-margin_top = 104.0
-margin_right = 350.0
-margin_bottom = 144.0
+[node name="ResumeButton" type="Button" parent="."]
+anchor_left = 0.292188
+anchor_top = 0.375
+anchor_right = 0.7
+anchor_bottom = 0.548611
 rect_min_size = Vector2( 0, 40 )
 text = "Resume"
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
-[node name="QuitButton" type="Button" parent="VBoxContainer"]
-margin_top = 148.0
-margin_right = 350.0
-margin_bottom = 188.0
+[node name="QuitButton" type="Button" parent="."]
+anchor_left = 0.295415
+anchor_top = 0.572819
+anchor_right = 0.700884
+anchor_bottom = 0.74643
 rect_min_size = Vector2( 0, 40 )
 text = "Quit"
-[connection signal="pressed" from="VBoxContainer/ResumeButton" to="." method="_on_ResumeButton_pressed"]
-[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]
+__meta__ = {
+"_edit_use_anchors_": true
+}
+[connection signal="pressed" from="ResumeButton" to="." method="_on_ResumeButton_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_QuitButton_pressed"]

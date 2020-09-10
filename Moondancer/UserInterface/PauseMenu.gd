@@ -1,7 +1,7 @@
 extends Control
 
 
-onready var resume_button = $VBoxContainer/ResumeButton
+onready var resume_button = $ResumeButton
 
 
 func _ready():

@@ -1,11 +1,11 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://Level/Caida.gd" type="Script" id=1]
+[ext_resource path="res://Level/Activables/Caida.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Map/activables/sueloMag_aguaPlanta.png" type="Texture" id=2]
-[ext_resource path="res://Level/Subida.gd" type="Script" id=3]
+[ext_resource path="res://Level/Activables/Subida.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 26.56, 4.47999 )
+extents = Vector2( 20.8521, 4.47999 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 397.362, 57.4306 )

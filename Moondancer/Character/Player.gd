@@ -9,6 +9,8 @@ const AIR_RESISTANCE = 1
 const GRAVITY = 120
 const JUMP_FORCE = 5000
 
+const FIREBALL = preload("res://Character/Fireball.tscn")
+
 enum {
 	IDLE,
 	WATERWALL,
@@ -40,23 +42,23 @@ func _physics_process(delta):
 			motion.x = lerp(motion.x, 0, FRICTION * delta)
 			
 		if Input.is_action_just_pressed("ui_up"):
-			$Light2D.color = Color(0, 200, 0, 0.1)
-			$Light2D.energy = 0.15
+			$Light2D.color = Color(30, 221, 30, 0.1)
+			$Light2D.energy = 0.25
 			state = JUMP
 			
 		if Input.is_action_just_pressed("ui_down") and state != WATERFALL:
-			$Light2D.color = Color(0, 0, 200, 0.1)
-			$Light2D.energy = 0.15
+			$Light2D.color = Color(40, 170, 228, 0.1)
+			$Light2D.energy = 0.25
 			state = WATERNULL
 			
 		if Input.is_action_just_pressed("ui_right") and state == IDLE:
-			$Light2D.color = Color(100, 100, 0, 0.1)
-			$Light2D.energy = 0.15
+			$Light2D.color = Color(253, 253, 0, 0.1)
+			$Light2D.energy = 0.25
 			state = AIR
 			
 		if Input.is_action_just_pressed("ui_left") and state == IDLE:
-			$Light2D.color = Color(200, 0, 0, 0.1)
-			$Light2D.energy = 0.15
+			$Light2D.color = Color(244, 70, 35, 0.1)
+			$Light2D.energy = 0.25
 			state = FIRE
 	
 	if state == IDLE:
@@ -66,6 +68,12 @@ func _physics_process(delta):
 			motion.x += x_input * ACCELERATION * delta * TARGET_FPS
 			motion.x = clamp(motion.x, -MAX_SPEED, MAX_SPEED)
 			$Sprite.flip_h = x_input < 0
+			$Position2D.position.x *= direction
+			if direction == 1:
+				$Light2D2.rotation_degrees = 30
+			else:
+				$Light2D2.rotation_degrees = -30
+				
 			
 		if int(last_pos) == int(position.x):
 			animationPlayer.play("Die")
@@ -88,11 +96,8 @@ func _physics_process(delta):
 	elif state == JUMP:
 		changeButtons(false, true, false, false)
 		animationPlayer.play("Earth")
-		print("1")
 		if is_on_floor():
-			print("2")
 			if Input.is_action_just_pressed("ui_up"):
-				print("3")
 				motion.y = -JUMP_FORCE
 		else:
 			if Input.is_action_just_released("ui_up") and motion.y < -JUMP_FORCE/2:
@@ -100,6 +105,7 @@ func _physics_process(delta):
 		
 	elif state == AIR:
 		changeButtons(false, false, false, false)
+		motion.x = 800*direction
 		animationPlayer.play("Air")
 		
 	elif state == FIRE:
@@ -124,3 +130,8 @@ func changeButtons(aqua, earth, wind, fire):
 	windButton.visible = wind
 	fireButton.visible = fire
 
+func shoot_fireball():
+	var fireball = FIREBALL.instance()
+	fireball.set_direction(direction)
+	get_parent().add_child(fireball)
+	fireball.position = $Position2D.global_position

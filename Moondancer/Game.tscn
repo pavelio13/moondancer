@@ -18,4 +18,3 @@ scale = Vector2( 0.8, 0.8 )
 [node name="InterfaceLayer" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" parent="InterfaceLayer" instance=ExtResource( 4 )]
-visible = false

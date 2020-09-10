@@ -134,9 +134,12 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.9 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0.35, 0.9 ),
+"transitions": PoolRealArray( 1, 1 ),
 "values": [ {
+"args": [  ],
+"method": "shoot_fireball"
+}, {
 "args": [ 0 ],
 "method": "change_state"
 } ]
@@ -261,23 +264,38 @@ tracks/1/keys = {
 "values": [ 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 18, 19, 49, 50 ]
 }
 
-[sub_resource type="RectangleShape2D" id=9]
-extents = Vector2( 118.385, 181.204 )
+[sub_resource type="CapsuleShape2D" id=9]
+radius = 86.3954
+height = 229.124
 
 [node name="Player" type="KinematicBody2D"]
 scale = Vector2( 0.6, 0.6 )
+z_index = 10
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-modulate = Color( 0.817647, 0.473529, 0.370588, 1 )
+light_mask = 2
 texture = ExtResource( 1 )
 vframes = 7
 hframes = 13
-frame = 60
+frame = 1
 
 [node name="Light2D" type="Light2D" parent="."]
+light_mask = 2
 texture = ExtResource( 7 )
-texture_scale = 3.0
+texture_scale = 4.0
+energy = 0.1
+shadow_enabled = true
+
+[node name="Light2D2" type="Light2D" parent="."]
+light_mask = 2
+rotation = 0.523599
+scale = Vector2( 0.721687, 1.66428 )
+texture = ExtResource( 7 )
+energy = 0.7
+range_item_cull_mask = 2
+shadow_enabled = true
+shadow_item_cull_mask = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Air = SubResource( 1 )
@@ -290,7 +308,9 @@ anims/WaterNull = SubResource( 7 )
 anims/WaterWall = SubResource( 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -11.1037, 27.0304 )
+visible = false
+position = Vector2( -17.6514, 12.0643 )
+rotation = 0.666716
 shape = SubResource( 9 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -328,6 +348,10 @@ action = "ui_right"
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground"]
+visible = false
 scale = Vector2( 1.0005, 1.00583 )
 texture = ExtResource( 8 )
 centered = false
+
+[node name="Position2D" type="Position2D" parent="."]
+position = Vector2( 70.9354, -73.4523 )
