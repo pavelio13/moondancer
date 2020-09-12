@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Assets/Character/completo/fullSpriteSheetNoom.png" type="Texture" id=1]
 [ext_resource path="res://Character/Player.gd" type="Script" id=2]
@@ -53,7 +53,7 @@ tracks/2/keys = {
 }
 
 [sub_resource type="Animation" id=2]
-length = 1.4
+length = 2.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -61,10 +61,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 1.5, 1.6, 1.7, 1.8, 1.9, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 78, 79, 80, 81, 82, 83, 84, 85, 86 ]
+"values": [ 78, 79, 80, 81, 82, 83, 84, 85, 86, 10, 9, 8, 7, 6, 5 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:modulate")
@@ -73,10 +73,24 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.9, 1.4 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0.9, 1.3, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 2.1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ true ],
+"method": "set_physics_process"
+} ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -158,6 +172,78 @@ tracks/2/keys = {
 }
 
 [sub_resource type="Animation" id=5]
+resource_name = "PortalIn"
+length = 0.55
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 5, 6, 7, 8, 9, 10 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.5, 0.55 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "PortalOut"
+length = 0.55
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 10, 9, 8, 7, 6, 5 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.05 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.55 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0 ],
+"method": "change_state"
+} ]
+}
+
+[sub_resource type="Animation" id=7]
 length = 0.6
 loop = true
 step = 0.05
@@ -174,7 +260,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=8]
 length = 1.1
 tracks/0/type = "method"
 tracks/0/path = NodePath(".")
@@ -203,7 +289,7 @@ tracks/1/keys = {
 "values": [ 26, 27, 28, 29, 30, 31, 34, 35, 36, 37, 38 ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=9]
 tracks/0/type = "method"
 tracks/0/path = NodePath(".")
 tracks/0/interp = 1
@@ -231,7 +317,7 @@ tracks/1/keys = {
 "values": [ 13, 14, 15, 16, 17, 18, 19, 20, 21, 22 ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=10]
 length = 1.4
 loop = true
 tracks/0/type = "method"
@@ -264,7 +350,7 @@ tracks/1/keys = {
 "values": [ 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 18, 19, 49, 50 ]
 }
 
-[sub_resource type="CapsuleShape2D" id=9]
+[sub_resource type="CapsuleShape2D" id=11]
 radius = 86.3954
 height = 229.124
 
@@ -302,16 +388,18 @@ anims/Air = SubResource( 1 )
 anims/Die = SubResource( 2 )
 anims/Earth = SubResource( 3 )
 anims/Fire = SubResource( 4 )
-anims/Walk = SubResource( 5 )
-anims/WaterFall = SubResource( 6 )
-anims/WaterNull = SubResource( 7 )
-anims/WaterWall = SubResource( 8 )
+anims/PortalIn = SubResource( 5 )
+anims/PortalOut = SubResource( 6 )
+anims/Walk = SubResource( 7 )
+anims/WaterFall = SubResource( 8 )
+anims/WaterNull = SubResource( 9 )
+anims/WaterWall = SubResource( 10 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
 position = Vector2( -17.6514, 12.0643 )
 rotation = 0.666716
-shape = SubResource( 9 )
+shape = SubResource( 11 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
@@ -322,24 +410,28 @@ process_mode = 0
 layer = 0
 
 [node name="Aqua" type="TouchScreenButton" parent="UI"]
+visible = false
 position = Vector2( 30, 428 )
 scale = Vector2( 0.25, 0.25 )
 normal = ExtResource( 4 )
 action = "ui_down"
 
 [node name="Earth" type="TouchScreenButton" parent="UI"]
+visible = false
 position = Vector2( 230, 518 )
 scale = Vector2( 0.25, 0.25 )
 normal = ExtResource( 3 )
 action = "ui_up"
 
 [node name="Fire" type="TouchScreenButton" parent="UI"]
+visible = false
 position = Vector2( 850, 518 )
 scale = Vector2( 0.25, 0.25 )
 normal = ExtResource( 5 )
 action = "ui_left"
 
 [node name="Wind" type="TouchScreenButton" parent="UI"]
+visible = false
 position = Vector2( 1050, 428 )
 scale = Vector2( 0.25, 0.25 )
 normal = ExtResource( 6 )
@@ -348,6 +440,7 @@ action = "ui_right"
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground"]
+visible = false
 scale = Vector2( 1.0005, 1.00583 )
 texture = ExtResource( 8 )
 centered = false

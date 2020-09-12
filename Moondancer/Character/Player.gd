@@ -18,7 +18,8 @@ enum {
 	WATERFALL,
 	JUMP,
 	AIR,
-	FIRE
+	FIRE,
+	PORTAL
 }
 
 var motion = Vector2.ZERO
@@ -77,11 +78,10 @@ func _physics_process(delta):
 		if int(last_pos) == int(position.x):
 			animationPlayer.play("Die")
 			set_physics_process(false)
-			yield(get_tree().create_timer(2), "timeout")
-			set_physics_process(true)
+			yield(get_tree().create_timer(1.4), "timeout")
+#			set_physics_process(true)
 			position = Stats.spawnpoint
 			direction = Stats.direction
-			$Sprite.modulate = Color(1,1,1,1)
 			
 		last_pos = position.x
 	
@@ -116,6 +116,17 @@ func _physics_process(delta):
 	elif state == FIRE:
 		changeButtons(false, false, false, false)
 		animationPlayer.play("Fire")
+		
+	elif state == PORTAL:
+		changeButtons(false, false, false, false)
+		if motion.x != 0:
+			animationPlayer.play("PortalIn")
+		motion.x = 0
+		if Input.is_action_just_pressed("ui_accept"):
+			animationPlayer.play("PortalOut")
+		
+	else:
+		print("Error")
 	
 	motion.y += GRAVITY * delta * TARGET_FPS	
 	motion = move_and_slide(motion, Vector2.UP)
@@ -130,10 +141,14 @@ func change_state(new_state):
 	
 
 func changeButtons(aqua, earth, wind, fire):
-	aquaButton.visible = aqua
-	earthButton.visible = earth
-	windButton.visible = wind
-	fireButton.visible = fire
+	if Stats.waterButton:
+		aquaButton.visible = aqua
+	if Stats.earthButton:
+		earthButton.visible = earth
+	if Stats.airButton:
+		windButton.visible = wind
+	if Stats.fireButton:
+		fireButton.visible = fire
 
 func shoot_fireball():
 	var fireball = FIREBALL.instance()

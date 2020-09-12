@@ -7,7 +7,7 @@
 extents = Vector2( 262.861, 62.0788 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 108.426, 62.6745 )
+extents = Vector2( 108.426, 280 )
 
 [node name="Cadenas" type="StaticBody2D"]
 
@@ -27,5 +27,4 @@ position = Vector2( 454.087, 198.982 )
 shape = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 220 )
 shape = SubResource( 2 )
