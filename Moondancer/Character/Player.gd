@@ -121,9 +121,9 @@ func _physics_process(delta):
 		changeButtons(false, false, false, false)
 		if motion.x != 0:
 			animationPlayer.play("PortalIn")
+			yield(get_tree().create_timer(0.7), "timeout")
+			get_node("Tutorial").visible = true
 		motion.x = 0
-		if Input.is_action_just_pressed("ui_accept"):
-			animationPlayer.play("PortalOut")
 		
 	else:
 		print("Error")
@@ -155,3 +155,9 @@ func shoot_fireball():
 	fireball.set_direction(direction)
 	get_parent().add_child(fireball)
 	fireball.position = $Position2D.global_position
+	fireball.z_index = 20
+
+
+func _on_Button_pressed():
+	get_node("Tutorial").visible = false
+	animationPlayer.play("PortalOut")
