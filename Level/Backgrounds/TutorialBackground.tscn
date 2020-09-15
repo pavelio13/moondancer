@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Assets/Background/fondos/bosque/cielo.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Background/fondos/bosque/arboles01.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Background/fondos/bosque/arboles02.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Background/fondos/bosque/arboles03.png" type="Texture" id=4]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+
+[node name="Sky" type="ParallaxLayer" parent="."]
+position = Vector2( 0, 1080 )
+scale = Vector2( 2, 2 )
+motion_scale = Vector2( 0, 0 )
+
+[node name="Sprite" type="Sprite" parent="Sky"]
+position = Vector2( 0, -540 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 48000, 1080 )
+
+[node name="Trees3" type="ParallaxLayer" parent="."]
+position = Vector2( 0, 1080 )
+scale = Vector2( 2, 2 )
+motion_scale = Vector2( 0.1, 0 )
+
+[node name="Sprite" type="Sprite" parent="Trees3"]
+position = Vector2( 0, -540 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 48000, 1080 )
+
+[node name="Trees2" type="ParallaxLayer" parent="."]
+position = Vector2( 0, 1080 )
+scale = Vector2( 2, 2 )
+motion_scale = Vector2( 0.2, 0 )
+
+[node name="Sprite" type="Sprite" parent="Trees2"]
+position = Vector2( 0, -540 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 48000, 1080 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Trees1" type="ParallaxLayer" parent="."]
+position = Vector2( 0, 1080 )
+scale = Vector2( 2, 2 )
+motion_scale = Vector2( 0.3, 0 )
+
+[node name="Sprite" type="Sprite" parent="Trees1"]
+position = Vector2( 0, -540 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 48000, 1080 )
