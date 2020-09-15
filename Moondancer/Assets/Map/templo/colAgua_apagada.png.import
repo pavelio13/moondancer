@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/sueloDerFino_templo.png-53422c06417963de23cad8b7f5b655c5.stex"
+path="res://.import/colAgua_apagada.png-0ac054ba5ef3c15f52d886f53d7cfbf0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Map/sueloTemplo/sueloDerFino_templo.png"
-dest_files=[ "res://.import/sueloDerFino_templo.png-53422c06417963de23cad8b7f5b655c5.stex" ]
+source_file="res://Assets/Map/templo/colAgua_apagada.png"
+dest_files=[ "res://.import/colAgua_apagada.png-0ac054ba5ef3c15f52d886f53d7cfbf0.stex" ]
 
 [params]
 

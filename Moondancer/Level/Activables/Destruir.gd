@@ -5,6 +5,10 @@ func _on_Destruir_area_entered(body):
 	if "Fireball" in body.name:
 		get_parent().get_node("AnimatedSprite").play("Destroy")
 		get_parent().z_index = 15
+		
+		get_parent().get_node("Rebote1").queue_free()
+		get_parent().get_node("Rebote2").queue_free()
+		
 		$Light2D.enabled = true
 		yield(get_tree().create_timer(0.2), "timeout")
 		get_parent().get_node("CollisionShape2D").set_deferred("disabled", true)

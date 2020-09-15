@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/sueloSuperiorIzq_templo.png-233ddbd672abed3145da8540b9864f46.stex"
+path="res://.import/techoIzq_templo.png-03dbf027ba5d52d9db0031168c68ca06.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Map/sueloTemplo/sueloSuperiorIzq_templo.png"
-dest_files=[ "res://.import/sueloSuperiorIzq_templo.png-233ddbd672abed3145da8540b9864f46.stex" ]
+source_file="res://Assets/Map/templo/techoIzq_templo.png"
+dest_files=[ "res://.import/techoIzq_templo.png-03dbf027ba5d52d9db0031168c68ca06.stex" ]
 
 [params]
 

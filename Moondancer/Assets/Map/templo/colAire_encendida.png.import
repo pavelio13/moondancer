@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/sueloSuperior_templo.png-8fcc42e560c473982e1252ce293a9311.stex"
+path="res://.import/colAire_encendida.png-96cfa53dbd5f4ebdf5d47b70092a78d4.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Map/sueloTemplo/sueloSuperior_templo.png"
-dest_files=[ "res://.import/sueloSuperior_templo.png-8fcc42e560c473982e1252ce293a9311.stex" ]
+source_file="res://Assets/Map/templo/colAire_encendida.png"
+dest_files=[ "res://.import/colAire_encendida.png-96cfa53dbd5f4ebdf5d47b70092a78d4.stex" ]
 
 [params]
 
