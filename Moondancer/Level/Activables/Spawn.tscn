@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Character/Stats.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Map/light.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Map/luces/light.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 99.7853, 282.534 )

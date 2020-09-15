@@ -78,8 +78,7 @@ func _physics_process(delta):
 		if int(last_pos) == int(position.x):
 			animationPlayer.play("Die")
 			set_physics_process(false)
-			yield(get_tree().create_timer(1.4), "timeout")
-#			set_physics_process(true)
+			yield(get_tree().create_timer(1.5), "timeout")
 			position = Stats.spawnpoint
 			direction = Stats.direction
 			
@@ -123,6 +122,16 @@ func _physics_process(delta):
 			animationPlayer.play("PortalIn")
 			yield(get_tree().create_timer(0.7), "timeout")
 			get_node("Tutorial").visible = true
+			
+			if Stats.earthButton:
+				get_node("Tutorial/Panel/AnimatedSprite").play("earthTutorial")
+			if Stats.waterButton:
+				get_node("Tutorial/Panel/AnimatedSprite").play("waterTutorial")
+			if Stats.fireButton:
+				get_node("Tutorial/Panel/AnimatedSprite").play("fireTutorial")
+			if Stats.airButton:
+				get_node("Tutorial/Panel/AnimatedSprite").play("airTutorial")
+			
 		motion.x = 0
 		
 	else:
@@ -158,6 +167,6 @@ func shoot_fireball():
 	fireball.z_index = 20
 
 
-func _on_Button_pressed():
+func _on_Accept_pressed():
 	get_node("Tutorial").visible = false
 	animationPlayer.play("PortalOut")

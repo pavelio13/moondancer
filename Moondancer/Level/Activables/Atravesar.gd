@@ -1,6 +1,6 @@
 extends Area2D
 
-func _process(delta):
+func _physics_process(delta):
 	if (get_overlapping_bodies().size() == 2 and Input.is_action_pressed("ui_right") ):
 		get_overlapping_bodies()[1].state = 5
 

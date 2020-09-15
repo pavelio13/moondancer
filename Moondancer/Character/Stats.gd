@@ -13,7 +13,7 @@ func _on_SpawnEarth_body_entered(body):
 	
 	if name == "SpawnEarth":
 		Stats.earthButton = true
-		get_node("AnimatedSprite").play("default")
+		get_node("AnimatedSprite").play("tierraEncendido")
 	elif name == "SpawnWater":
 		Stats.waterButton = true
 		get_node("AnimatedSprite").play("aguaEncendido")

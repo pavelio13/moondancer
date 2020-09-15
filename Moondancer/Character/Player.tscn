@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=87 format=2]
 
 [ext_resource path="res://Assets/Character/completo/fullSpriteSheetNoom.png" type="Texture" id=1]
 [ext_resource path="res://Character/Player.gd" type="Script" id=2]
@@ -6,19 +6,26 @@
 [ext_resource path="res://Assets/UI/botonAgua.png" type="Texture" id=4]
 [ext_resource path="res://Assets/UI/botonFuego.png" type="Texture" id=5]
 [ext_resource path="res://Assets/UI/botonAire.png" type="Texture" id=6]
-[ext_resource path="res://Assets/Map/light.png" type="Texture" id=7]
-[ext_resource path="res://Assets/Background/fondoBosque.png" type="Texture" id=8]
-[ext_resource path="res://Fonts/MoonCat.tres" type="DynamicFont" id=9]
+[ext_resource path="res://Assets/Map/luces/light.png" type="Texture" id=7]
+[ext_resource path="res://Assets/UI/botonAceptar.png" type="Texture" id=9]
 [ext_resource path="res://Assets/Character/Planta/spriteSheet_Planta.png" type="Texture" id=10]
 [ext_resource path="res://Sounds/water.wav" type="AudioStream" id=11]
 [ext_resource path="res://Sounds/earth.wav" type="AudioStream" id=12]
 [ext_resource path="res://Sounds/walk.wav" type="AudioStream" id=13]
 [ext_resource path="res://Sounds/fire.wav" type="AudioStream" id=14]
+[ext_resource path="res://Assets/UI/botonPausa.png" type="Texture" id=15]
+[ext_resource path="res://Assets/UI/ventanaTutorial.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Character/Agua/spriteSheet_AguaCaida.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Character/Agua/spriteSheet_AguaRebote.png" type="Texture" id=18]
+[ext_resource path="res://Assets/Character/Fuego/spriteSheet_Fuego.png" type="Texture" id=19]
+[ext_resource path="res://Assets/Character/Aire/spriteSheet_Aire.png" type="Texture" id=20]
+[ext_resource path="res://Sounds/portal.wav" type="AudioStream" id=21]
+[ext_resource path="res://Sounds/air.wav" type="AudioStream" id=22]
+[ext_resource path="res://Sounds/dead.wav" type="AudioStream" id=23]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Air"
 length = 1.1
-loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -57,9 +64,22 @@ tracks/2/keys = {
 "update": 0,
 "values": [ Vector2( 0, 0 ), Vector2( 0, -150 ), Vector2( 0, 0 ) ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sounds/air:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.6, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, true, false ]
+}
 
 [sub_resource type="Animation" id=2]
-length = 2.1
+length = 3.0
+step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -67,7 +87,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 1.5, 1.6, 1.7, 1.8, 1.9, 2 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 2.35, 2.45, 2.55, 2.65, 2.75, 2.85 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 78, 79, 80, 81, 82, 83, 84, 85, 86, 10, 9, 8, 7, 6, 5 ]
@@ -79,10 +99,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.9, 1.3, 1.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0.9, 1.4, 2.35, 2.55 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 tracks/2/type = "method"
 tracks/2/path = NodePath(".")
@@ -91,18 +111,41 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 2.1 ),
+"times": PoolRealArray( 2.95 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [ true ],
 "method": "set_physics_process"
 } ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sounds/dead:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.2, 1.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Sounds/portal:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 2.35, 2.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
 [sub_resource type="Animation" id=3]
 resource_name = "Earth"
 length = 0.9
-loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -145,7 +188,6 @@ tracks/2/keys = {
 [sub_resource type="Animation" id=4]
 resource_name = "Fire"
 length = 0.9
-loop = true
 step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -203,7 +245,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id=5]
 resource_name = "PortalIn"
-length = 0.55
+length = 0.7
 step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -229,10 +271,22 @@ tracks/1/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sounds/portal:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.75 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
 [sub_resource type="Animation" id=6]
 resource_name = "PortalOut"
-length = 0.55
+length = 0.7
 step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -271,6 +325,18 @@ tracks/2/keys = {
 "args": [ 0 ],
 "method": "change_state"
 } ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sounds/portal:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
 }
 
 [sub_resource type="Animation" id=7]
@@ -344,7 +410,6 @@ tracks/2/keys = {
 }
 
 [sub_resource type="Animation" id=9]
-loop = true
 step = 0.05
 tracks/0/type = "method"
 tracks/0/path = NodePath(".")
@@ -387,7 +452,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id=10]
 length = 1.4
-loop = true
+step = 0.01
 tracks/0/type = "method"
 tracks/0/path = NodePath(".")
 tracks/0/interp = 1
@@ -395,7 +460,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 1.2, 1.4 ),
+"times": PoolRealArray( 1.2, 1.39 ),
 "transitions": PoolRealArray( 1, 1 ),
 "values": [ {
 "args": [  ],
@@ -433,81 +498,284 @@ tracks/2/keys = {
 [sub_resource type="RectangleShape2D" id=11]
 extents = Vector2( 74.2492, 152.835 )
 
-[sub_resource type="StyleBoxFlat" id=12]
-bg_color = Color( 0.105882, 0.105882, 0.294118, 1 )
-border_width_left = 100
-border_width_top = 100
-border_width_right = 100
-border_width_bottom = 100
-border_color = Color( 0.4, 0.376471, 0.0862745, 1 )
-corner_radius_top_left = 100
-corner_radius_top_right = 100
-corner_radius_bottom_left = 100
+[sub_resource type="AtlasTexture" id=12]
+flags = 4
+atlas = ExtResource( 20 )
+region = Rect2( 0, 0, 400, 400 )
 
 [sub_resource type="AtlasTexture" id=13]
+flags = 4
+atlas = ExtResource( 20 )
+region = Rect2( 400, 0, 400, 400 )
+
+[sub_resource type="AtlasTexture" id=14]
+flags = 4
+atlas = ExtResource( 20 )
+region = Rect2( 800, 0, 400, 400 )
+
+[sub_resource type="AtlasTexture" id=15]
+flags = 4
+atlas = ExtResource( 20 )
+region = Rect2( 1200, 0, 400, 400 )
+
+[sub_resource type="AtlasTexture" id=16]
+flags = 4
+atlas = ExtResource( 20 )
+region = Rect2( 1600, 0, 400, 400 )
+
+[sub_resource type="AtlasTexture" id=17]
+flags = 4
+atlas = ExtResource( 19 )
+region = Rect2( 0, 0, 400, 400 )
+
+[sub_resource type="AtlasTexture" id=18]
+flags = 4
+atlas = ExtResource( 19 )
+region = Rect2( 400, 0, 400, 400 )
+
+[sub_resource type="AtlasTexture" id=19]
+flags = 4
+atlas = ExtResource( 19 )
+region = Rect2( 800, 0, 400, 400 )
+
+[sub_resource type="AtlasTexture" id=20]
+flags = 4
+atlas = ExtResource( 19 )
+region = Rect2( 1200, 0, 400, 400 )
+
+[sub_resource type="AtlasTexture" id=21]
+flags = 4
+atlas = ExtResource( 19 )
+region = Rect2( 1600, 0, 400, 400 )
+
+[sub_resource type="AtlasTexture" id=22]
+flags = 4
+atlas = ExtResource( 19 )
+region = Rect2( 2000, 0, 400, 400 )
+
+[sub_resource type="AtlasTexture" id=23]
+flags = 4
+atlas = ExtResource( 19 )
+region = Rect2( 2400, 0, 400, 400 )
+
+[sub_resource type="AtlasTexture" id=24]
+flags = 4
+atlas = ExtResource( 19 )
+region = Rect2( 2800, 0, 400, 400 )
+
+[sub_resource type="AtlasTexture" id=25]
+flags = 4
+atlas = ExtResource( 17 )
+region = Rect2( 0, 0, 400, 400 )
+
+[sub_resource type="AtlasTexture" id=26]
+flags = 4
+atlas = ExtResource( 17 )
+region = Rect2( 400, 0, 400, 400 )
+
+[sub_resource type="AtlasTexture" id=27]
+flags = 4
+atlas = ExtResource( 17 )
+region = Rect2( 800, 0, 400, 400 )
+
+[sub_resource type="AtlasTexture" id=28]
+flags = 4
+atlas = ExtResource( 17 )
+region = Rect2( 1200, 0, 400, 400 )
+
+[sub_resource type="AtlasTexture" id=29]
+flags = 4
+atlas = ExtResource( 17 )
+region = Rect2( 1600, 0, 400, 400 )
+
+[sub_resource type="AtlasTexture" id=30]
+flags = 4
+atlas = ExtResource( 17 )
+region = Rect2( 2800, 0, 400, 400 )
+
+[sub_resource type="AtlasTexture" id=31]
+flags = 4
+atlas = ExtResource( 17 )
+region = Rect2( 3200, 0, 400, 400 )
+
+[sub_resource type="AtlasTexture" id=32]
+flags = 4
+atlas = ExtResource( 17 )
+region = Rect2( 3600, 0, 400, 400 )
+
+[sub_resource type="AtlasTexture" id=33]
+flags = 4
+atlas = ExtResource( 17 )
+region = Rect2( 4000, 0, 400, 400 )
+
+[sub_resource type="AtlasTexture" id=34]
+flags = 4
+atlas = ExtResource( 17 )
+region = Rect2( 4400, 0, 400, 400 )
+
+[sub_resource type="AtlasTexture" id=35]
+flags = 4
+atlas = ExtResource( 17 )
+region = Rect2( 4800, 0, 400, 400 )
+
+[sub_resource type="AtlasTexture" id=36]
+flags = 4
+atlas = ExtResource( 17 )
+region = Rect2( 5200, 0, 400, 400 )
+
+[sub_resource type="AtlasTexture" id=37]
+flags = 4
+atlas = ExtResource( 17 )
+region = Rect2( 5600, 0, 400, 400 )
+
+[sub_resource type="AtlasTexture" id=38]
+flags = 4
+atlas = ExtResource( 18 )
+region = Rect2( 0, 0, 400, 400 )
+
+[sub_resource type="AtlasTexture" id=39]
+flags = 4
+atlas = ExtResource( 18 )
+region = Rect2( 400, 0, 400, 400 )
+
+[sub_resource type="AtlasTexture" id=40]
+flags = 4
+atlas = ExtResource( 18 )
+region = Rect2( 800, 0, 400, 400 )
+
+[sub_resource type="AtlasTexture" id=41]
+flags = 4
+atlas = ExtResource( 18 )
+region = Rect2( 1200, 0, 400, 400 )
+
+[sub_resource type="AtlasTexture" id=42]
+flags = 4
+atlas = ExtResource( 18 )
+region = Rect2( 1600, 0, 400, 400 )
+
+[sub_resource type="AtlasTexture" id=43]
+flags = 4
+atlas = ExtResource( 18 )
+region = Rect2( 3600, 0, 400, 400 )
+
+[sub_resource type="AtlasTexture" id=44]
+flags = 4
+atlas = ExtResource( 18 )
+region = Rect2( 4000, 0, 400, 400 )
+
+[sub_resource type="AtlasTexture" id=45]
+flags = 4
+atlas = ExtResource( 18 )
+region = Rect2( 4400, 0, 400, 400 )
+
+[sub_resource type="AtlasTexture" id=46]
+flags = 4
+atlas = ExtResource( 18 )
+region = Rect2( 4800, 0, 400, 400 )
+
+[sub_resource type="AtlasTexture" id=47]
+flags = 4
+atlas = ExtResource( 18 )
+region = Rect2( 5200, 0, 400, 400 )
+
+[sub_resource type="AtlasTexture" id=48]
+flags = 4
+atlas = ExtResource( 18 )
+region = Rect2( 5600, 0, 400, 400 )
+
+[sub_resource type="AtlasTexture" id=49]
+flags = 4
+atlas = ExtResource( 18 )
+region = Rect2( 6400, 0, 400, 400 )
+
+[sub_resource type="AtlasTexture" id=50]
+flags = 4
+atlas = ExtResource( 18 )
+region = Rect2( 6800, 0, 400, 400 )
+
+[sub_resource type="AtlasTexture" id=51]
+flags = 4
+atlas = ExtResource( 18 )
+region = Rect2( 7200, 0, 400, 400 )
+
+[sub_resource type="AtlasTexture" id=52]
+flags = 4
+atlas = ExtResource( 18 )
+region = Rect2( 7600, 0, 400, 400 )
+
+[sub_resource type="AtlasTexture" id=53]
 flags = 4
 atlas = ExtResource( 10 )
 region = Rect2( 0, 0, 400, 400 )
 
-[sub_resource type="AtlasTexture" id=14]
+[sub_resource type="AtlasTexture" id=54]
 flags = 4
 atlas = ExtResource( 10 )
 region = Rect2( 400, 0, 400, 400 )
 
-[sub_resource type="AtlasTexture" id=15]
+[sub_resource type="AtlasTexture" id=55]
 flags = 4
 atlas = ExtResource( 10 )
 region = Rect2( 800, 0, 400, 400 )
 
-[sub_resource type="AtlasTexture" id=16]
+[sub_resource type="AtlasTexture" id=56]
 flags = 4
 atlas = ExtResource( 10 )
 region = Rect2( 1200, 0, 400, 400 )
 
-[sub_resource type="AtlasTexture" id=17]
+[sub_resource type="AtlasTexture" id=57]
 flags = 4
 atlas = ExtResource( 10 )
 region = Rect2( 1600, 0, 400, 400 )
 
-[sub_resource type="AtlasTexture" id=18]
+[sub_resource type="AtlasTexture" id=58]
 flags = 4
 atlas = ExtResource( 10 )
 region = Rect2( 2000, 0, 400, 400 )
 
-[sub_resource type="AtlasTexture" id=19]
+[sub_resource type="AtlasTexture" id=59]
 flags = 4
 atlas = ExtResource( 10 )
 region = Rect2( 2400, 0, 400, 400 )
 
-[sub_resource type="AtlasTexture" id=20]
+[sub_resource type="AtlasTexture" id=60]
 flags = 4
 atlas = ExtResource( 10 )
 region = Rect2( 2800, 0, 400, 400 )
 
-[sub_resource type="AtlasTexture" id=21]
+[sub_resource type="AtlasTexture" id=61]
 flags = 4
 atlas = ExtResource( 10 )
 region = Rect2( 3200, 0, 400, 400 )
 
-[sub_resource type="SpriteFrames" id=22]
+[sub_resource type="SpriteFrames" id=62]
 animations = [ {
-"frames": [ SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ) ],
+"frames": [ SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), null, SubResource( 16 ), SubResource( 15 ), SubResource( 14 ), SubResource( 13 ), SubResource( 12 ) ],
 "loop": true,
-"name": "aireTutorial",
-"speed": 5.0
+"name": "airTutorial",
+"speed": 8.0
+}, {
+"frames": [ SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ) ],
+"loop": true,
+"name": "fireTutorial",
+"speed": 8.0
+}, {
+"frames": [ SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ), SubResource( 37 ), null, SubResource( 38 ), SubResource( 39 ), SubResource( 40 ), SubResource( 41 ), SubResource( 42 ), SubResource( 43 ), SubResource( 44 ), SubResource( 45 ), SubResource( 46 ), SubResource( 47 ), SubResource( 48 ), SubResource( 49 ), SubResource( 50 ), SubResource( 51 ), SubResource( 52 ) ],
+"loop": true,
+"name": "waterTutorial",
+"speed": 8.0
+}, {
+"frames": [ SubResource( 53 ), SubResource( 54 ), SubResource( 55 ), SubResource( 56 ), SubResource( 57 ), SubResource( 58 ), SubResource( 59 ), SubResource( 60 ), SubResource( 61 ) ],
+"loop": true,
+"name": "earthTutorial",
+"speed": 8.0
 } ]
 
-[sub_resource type="StyleBoxFlat" id=23]
-bg_color = Color( 0.12549, 0.0901961, 0.25098, 1 )
-
-[sub_resource type="StyleBoxFlat" id=24]
-bg_color = Color( 0.694118, 0.643137, 0.184314, 1 )
-
-[sub_resource type="InputEventAction" id=25]
+[sub_resource type="InputEventAction" id=63]
 action = "ui_accept"
 
-[sub_resource type="ShortCut" id=26]
-shortcut = SubResource( 25 )
+[sub_resource type="ShortCut" id=64]
+shortcut = SubResource( 63 )
 
 [node name="Player" type="KinematicBody2D"]
 scale = Vector2( 0.6, 0.6 )
@@ -519,7 +787,7 @@ light_mask = 2
 texture = ExtResource( 1 )
 vframes = 7
 hframes = 13
-frame = 57
+frame = 52
 
 [node name="Light2D" type="Light2D" parent="."]
 light_mask = 2
@@ -590,71 +858,76 @@ scale = Vector2( 0.25, 0.25 )
 normal = ExtResource( 6 )
 action = "ui_right"
 
+[node name="TouchScreenButton" type="TouchScreenButton" parent="UI"]
+modulate = Color( 1, 1, 1, 0.439216 )
+position = Vector2( 1144, 16 )
+scale = Vector2( 0.1, 0.1 )
+normal = ExtResource( 15 )
+action = "toggle_pause"
+
 [node name="Tutorial" type="Control" parent="."]
 visible = false
+rect_scale = Vector2( 2.3, 2.3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Panel" type="Panel" parent="Tutorial"]
+[node name="Panel" type="TextureRect" parent="Tutorial"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -1585.0
-margin_top = -1026.0
-margin_right = 1586.0
-margin_bottom = 1040.0
-custom_styles/panel = SubResource( 12 )
+margin_left = -889.0
+margin_top = -493.0
+margin_right = 47.0
+margin_bottom = 129.0
+rect_scale = Vector2( 1.9, 1.6 )
+texture = ExtResource( 16 )
+stretch_mode = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Tutorial/Panel"]
-position = Vector2( 1211.67, 866 )
-scale = Vector2( 3.535, 3.39833 )
-frames = SubResource( 22 )
-animation = "aireTutorial"
-frame = 2
-playing = true
+position = Vector2( 372.105, 299.792 )
+frames = SubResource( 62 )
+animation = "earthTutorial"
 
-[node name="Button" type="Button" parent="Tutorial/Panel"]
-margin_left = 2585.0
-margin_top = 1666.0
-margin_right = 2945.0
-margin_bottom = 1853.0
-custom_styles/pressed = SubResource( 23 )
-custom_styles/normal = SubResource( 24 )
-custom_fonts/font = ExtResource( 9 )
-shortcut = SubResource( 26 )
-text = "OK"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-
-[node name="Sprite" type="Sprite" parent="ParallaxBackground"]
-scale = Vector2( 0.666, 0.666 )
-texture = ExtResource( 8 )
-centered = false
+[node name="Accept" type="TextureButton" parent="Tutorial/Panel"]
+margin_left = 652.807
+margin_top = 441.458
+margin_right = 1852.81
+margin_bottom = 1041.46
+rect_scale = Vector2( 0.1, 0.1 )
+shortcut = SubResource( 64 )
+texture_normal = ExtResource( 9 )
 
 [node name="Position2D" type="Position2D" parent="."]
 position = Vector2( 84.3941, -75.7714 )
 
 [node name="Sounds" type="Node" parent="."]
 
-[node name="water" type="AudioStreamPlayer" parent="Sounds"]
-stream = ExtResource( 11 )
-volume_db = -10.0
+[node name="walk" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 13 )
+volume_db = -15.3
 
 [node name="earth" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource( 12 )
 volume_db = -10.0
 
-[node name="walk" type="AudioStreamPlayer" parent="Sounds"]
-stream = ExtResource( 13 )
-volume_db = -21.924
+[node name="water" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 11 )
+volume_db = -10.0
 
 [node name="fire" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource( 14 )
-volume_db = -7.949
-[connection signal="pressed" from="Tutorial/Panel/Button" to="." method="_on_Button_pressed"]
+volume_db = -5.0
+
+[node name="air" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 22 )
+volume_db = 10.599
+
+[node name="portal" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 21 )
+
+[node name="dead" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 23 )
+[connection signal="pressed" from="Tutorial/Panel/Accept" to="." method="_on_Accept_pressed"]

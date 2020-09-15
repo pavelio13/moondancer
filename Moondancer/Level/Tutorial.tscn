@@ -1,9 +1,9 @@
-[gd_scene load_steps=44 format=2]
+[gd_scene load_steps=50 format=2]
 
 [ext_resource path="res://Level/TileSet.tres" type="TileSet" id=1]
 [ext_resource path="res://Level/Activables/Rebote.gd" type="Script" id=2]
 [ext_resource path="res://Level/Activables/Cadenas.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Assets/Map/light.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Map/luces/light.png" type="Texture" id=4]
 [ext_resource path="res://Level/Activables/SueloMagico.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Level/Activables/Tronco.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Level/Activables/Spawn.tscn" type="PackedScene" id=7]
@@ -12,184 +12,211 @@
 [ext_resource path="res://Assets/Map/activables/piedrasLunares/fuegoSpriteSheet.png" type="Texture" id=10]
 [ext_resource path="res://Assets/Map/activables/piedrasLunares/fuegoApagadoSpriteSheet.png" type="Texture" id=11]
 [ext_resource path="res://Assets/Map/activables/piedrasLunares/aireSpriteSheet.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Map/activables/piedrasLunares/plantaSpriteSheet.png" type="Texture" id=13]
+[ext_resource path="res://Level/Backgrounds/TutorialBackground.tscn" type="PackedScene" id=14]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 11.2, 1.92 )
 
 [sub_resource type="AtlasTexture" id=2]
 flags = 4
-atlas = ExtResource( 9 )
-region = Rect2( 0, 0, 512, 768 )
+atlas = ExtResource( 13 )
+region = Rect2( 0, 0, 512, 512 )
 
 [sub_resource type="AtlasTexture" id=3]
 flags = 4
-atlas = ExtResource( 9 )
-region = Rect2( 512, 0, 512, 768 )
+atlas = ExtResource( 13 )
+region = Rect2( 512, 0, 512, 512 )
 
-[sub_resource type="SpriteFrames" id=4]
-animations = [ {
-"frames": [ SubResource( 2 ), SubResource( 3 ) ],
-"loop": true,
-"name": "default",
-"speed": 5.0
-} ]
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 13 )
+region = Rect2( 1024, 0, 512, 512 )
 
 [sub_resource type="AtlasTexture" id=5]
+flags = 4
+atlas = ExtResource( 13 )
+region = Rect2( 0, 512, 512, 512 )
+
+[sub_resource type="AtlasTexture" id=6]
+flags = 4
+atlas = ExtResource( 13 )
+region = Rect2( 512, 512, 512, 512 )
+
+[sub_resource type="AtlasTexture" id=7]
+flags = 4
+atlas = ExtResource( 13 )
+region = Rect2( 1024, 512, 512, 512 )
+
+[sub_resource type="SpriteFrames" id=8]
+animations = [ {
+"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 2 ), SubResource( 4 ) ],
+"loop": true,
+"name": "tierraApagado",
+"speed": 6.0
+}, {
+"frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 5 ), SubResource( 7 ) ],
+"loop": true,
+"name": "tierraEncendido",
+"speed": 6.0
+} ]
+
+[sub_resource type="AtlasTexture" id=9]
 flags = 4
 atlas = ExtResource( 9 )
 region = Rect2( 0, 768, 512, 768 )
 
-[sub_resource type="AtlasTexture" id=6]
+[sub_resource type="AtlasTexture" id=10]
 flags = 4
 atlas = ExtResource( 9 )
 region = Rect2( 512, 768, 512, 768 )
 
-[sub_resource type="AtlasTexture" id=7]
+[sub_resource type="AtlasTexture" id=11]
 flags = 4
 atlas = ExtResource( 9 )
 region = Rect2( 0, 0, 512, 768 )
 
-[sub_resource type="AtlasTexture" id=8]
+[sub_resource type="AtlasTexture" id=12]
 flags = 4
 atlas = ExtResource( 9 )
 region = Rect2( 512, 0, 512, 768 )
 
-[sub_resource type="SpriteFrames" id=9]
+[sub_resource type="SpriteFrames" id=13]
 animations = [ {
-"frames": [ SubResource( 5 ), SubResource( 6 ) ],
+"frames": [ SubResource( 9 ), SubResource( 10 ) ],
 "loop": true,
 "name": "aguaEncendido",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 7 ), SubResource( 8 ) ],
+"frames": [ SubResource( 11 ), SubResource( 12 ) ],
 "loop": true,
 "name": "aguaApagado",
 "speed": 7.0
 } ]
 
-[sub_resource type="AtlasTexture" id=10]
+[sub_resource type="AtlasTexture" id=14]
 flags = 4
 atlas = ExtResource( 10 )
 region = Rect2( 0, 768, 512, 768 )
 
-[sub_resource type="AtlasTexture" id=11]
+[sub_resource type="AtlasTexture" id=15]
 flags = 4
 atlas = ExtResource( 10 )
 region = Rect2( 512, 768, 512, 768 )
 
-[sub_resource type="AtlasTexture" id=12]
+[sub_resource type="AtlasTexture" id=16]
 flags = 4
 atlas = ExtResource( 10 )
 region = Rect2( 1024, 768, 512, 768 )
 
-[sub_resource type="AtlasTexture" id=13]
+[sub_resource type="AtlasTexture" id=17]
 flags = 4
 atlas = ExtResource( 10 )
 region = Rect2( 1536, 768, 512, 768 )
 
-[sub_resource type="AtlasTexture" id=14]
+[sub_resource type="AtlasTexture" id=18]
 flags = 4
 atlas = ExtResource( 11 )
 region = Rect2( 0, 0, 512, 768 )
 
-[sub_resource type="AtlasTexture" id=15]
+[sub_resource type="AtlasTexture" id=19]
 flags = 4
 atlas = ExtResource( 11 )
 region = Rect2( 512, 0, 512, 768 )
 
-[sub_resource type="AtlasTexture" id=16]
+[sub_resource type="AtlasTexture" id=20]
 flags = 4
 atlas = ExtResource( 11 )
 region = Rect2( 1024, 0, 512, 768 )
 
-[sub_resource type="AtlasTexture" id=17]
+[sub_resource type="AtlasTexture" id=21]
 flags = 4
 atlas = ExtResource( 11 )
 region = Rect2( 1536, 0, 512, 768 )
 
-[sub_resource type="SpriteFrames" id=18]
+[sub_resource type="SpriteFrames" id=22]
 animations = [ {
-"frames": [ SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ) ],
+"frames": [ SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ) ],
 "loop": true,
 "name": "fuegoEncendido",
 "speed": 8.0
 }, {
-"frames": [ SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ) ],
+"frames": [ SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ) ],
 "loop": true,
 "name": "fuegoApagado",
 "speed": 8.0
 } ]
 
-[sub_resource type="AtlasTexture" id=19]
-flags = 4
-atlas = ExtResource( 12 )
-region = Rect2( 0, 768, 512, 768 )
-
-[sub_resource type="AtlasTexture" id=20]
-flags = 4
-atlas = ExtResource( 12 )
-region = Rect2( 512, 768, 512, 768 )
-
-[sub_resource type="AtlasTexture" id=21]
-flags = 4
-atlas = ExtResource( 12 )
-region = Rect2( 1024, 768, 512, 768 )
-
-[sub_resource type="AtlasTexture" id=22]
-flags = 4
-atlas = ExtResource( 12 )
-region = Rect2( 1536, 768, 512, 768 )
-
 [sub_resource type="AtlasTexture" id=23]
-flags = 4
-atlas = ExtResource( 12 )
-region = Rect2( 2048, 768, 512, 768 )
-
-[sub_resource type="AtlasTexture" id=24]
-flags = 4
-atlas = ExtResource( 12 )
-region = Rect2( 2560, 768, 512, 768 )
-
-[sub_resource type="AtlasTexture" id=25]
 flags = 4
 atlas = ExtResource( 12 )
 region = Rect2( 0, 0, 512, 768 )
 
-[sub_resource type="AtlasTexture" id=26]
+[sub_resource type="AtlasTexture" id=24]
 flags = 4
 atlas = ExtResource( 12 )
 region = Rect2( 512, 0, 512, 768 )
 
-[sub_resource type="AtlasTexture" id=27]
+[sub_resource type="AtlasTexture" id=25]
 flags = 4
 atlas = ExtResource( 12 )
 region = Rect2( 1024, 0, 512, 768 )
 
-[sub_resource type="AtlasTexture" id=28]
+[sub_resource type="AtlasTexture" id=26]
 flags = 4
 atlas = ExtResource( 12 )
 region = Rect2( 1536, 0, 512, 768 )
 
-[sub_resource type="AtlasTexture" id=29]
+[sub_resource type="AtlasTexture" id=27]
 flags = 4
 atlas = ExtResource( 12 )
 region = Rect2( 2048, 0, 512, 768 )
 
-[sub_resource type="AtlasTexture" id=30]
+[sub_resource type="AtlasTexture" id=28]
 flags = 4
 atlas = ExtResource( 12 )
 region = Rect2( 2560, 0, 512, 768 )
 
-[sub_resource type="SpriteFrames" id=31]
+[sub_resource type="AtlasTexture" id=29]
+flags = 4
+atlas = ExtResource( 12 )
+region = Rect2( 0, 768, 512, 768 )
+
+[sub_resource type="AtlasTexture" id=30]
+flags = 4
+atlas = ExtResource( 12 )
+region = Rect2( 512, 768, 512, 768 )
+
+[sub_resource type="AtlasTexture" id=31]
+flags = 4
+atlas = ExtResource( 12 )
+region = Rect2( 1024, 768, 512, 768 )
+
+[sub_resource type="AtlasTexture" id=32]
+flags = 4
+atlas = ExtResource( 12 )
+region = Rect2( 1536, 768, 512, 768 )
+
+[sub_resource type="AtlasTexture" id=33]
+flags = 4
+atlas = ExtResource( 12 )
+region = Rect2( 2048, 768, 512, 768 )
+
+[sub_resource type="AtlasTexture" id=34]
+flags = 4
+atlas = ExtResource( 12 )
+region = Rect2( 2560, 768, 512, 768 )
+
+[sub_resource type="SpriteFrames" id=35]
 animations = [ {
-"frames": [ SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ) ],
-"loop": true,
-"name": "aireEncendido",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ) ],
+"frames": [ SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ) ],
 "loop": true,
 "name": "aireApagado",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ) ],
+"loop": true,
+"name": "aireEncendido",
 "speed": 5.0
 } ]
 
@@ -294,7 +321,15 @@ shape = SubResource( 1 )
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rebotes/Rebote7"]
-position = Vector2( 6352.32, 5972.01 )
+position = Vector2( 6304, 5984 )
+scale = Vector2( 20, 50 )
+shape = SubResource( 1 )
+
+[node name="Rebote14" type="Area2D" parent="Rebotes"]
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rebotes/Rebote14"]
+position = Vector2( 7328, 5984 )
 scale = Vector2( 20, 50 )
 shape = SubResource( 1 )
 
@@ -350,8 +385,11 @@ shape = SubResource( 1 )
 position = Vector2( 974.504, 95.5055 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="SpawnEarth"]
-frames = SubResource( 4 )
-frame = 1
+position = Vector2( 0, -440 )
+scale = Vector2( 3, 3 )
+frames = SubResource( 8 )
+animation = "tierraApagado"
+frame = 3
 playing = true
 
 [node name="SpawnWater" parent="." instance=ExtResource( 7 )]
@@ -360,8 +398,9 @@ position = Vector2( 12332, 133.698 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="SpawnWater"]
 position = Vector2( 0, -208.778 )
 scale = Vector2( 1.5, 1.5 )
-frames = SubResource( 9 )
+frames = SubResource( 13 )
 animation = "aguaApagado"
+frame = 1
 playing = true
 
 [node name="SpawnFire" parent="." instance=ExtResource( 7 )]
@@ -369,7 +408,7 @@ position = Vector2( 11384.7, 2996.83 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="SpawnFire"]
 scale = Vector2( 1.5, 1.5 )
-frames = SubResource( 18 )
+frames = SubResource( 22 )
 animation = "fuegoApagado"
 frame = 1
 playing = true
@@ -379,10 +418,12 @@ position = Vector2( 14948.1, 4666.54 )
 scale = Vector2( -1, 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="SpawnAir"]
-frames = SubResource( 31 )
+frames = SubResource( 35 )
 animation = "aireApagado"
-frame = 1
+frame = 3
 playing = true
+
+[node name="ParallaxBackground" parent="." instance=ExtResource( 14 )]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
@@ -394,6 +435,7 @@ autoplay = true
 [connection signal="body_exited" from="Rebotes/Rebote5" to="Rebotes/Rebote5" method="_on_Rebote1_body_exited"]
 [connection signal="body_exited" from="Rebotes/Rebote6" to="Rebotes/Rebote6" method="_on_Rebote1_body_exited"]
 [connection signal="body_exited" from="Rebotes/Rebote7" to="Rebotes/Rebote7" method="_on_Rebote1_body_exited"]
+[connection signal="body_exited" from="Rebotes/Rebote14" to="Rebotes/Rebote14" method="_on_Rebote1_body_exited"]
 [connection signal="body_exited" from="Rebotes/Rebote8" to="Rebotes/Rebote8" method="_on_Rebote1_body_exited"]
 [connection signal="body_exited" from="Rebotes/Rebote9" to="Rebotes/Rebote9" method="_on_Rebote1_body_exited"]
 [connection signal="body_exited" from="Rebotes/Rebote10" to="Rebotes/Rebote10" method="_on_Rebote1_body_exited"]

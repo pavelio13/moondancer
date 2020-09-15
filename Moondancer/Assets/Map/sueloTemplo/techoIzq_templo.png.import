@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/light.png-c43117a07223392ec1038031111d28d7.stex"
+path="res://.import/techoIzq_templo.png-dadd9c38ce7e220162279bd31133f9fa.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Map/light.png"
-dest_files=[ "res://.import/light.png-c43117a07223392ec1038031111d28d7.stex" ]
+source_file="res://Assets/Map/sueloTemplo/techoIzq_templo.png"
+dest_files=[ "res://.import/techoIzq_templo.png-dadd9c38ce7e220162279bd31133f9fa.stex" ]
 
 [params]
 
@@ -23,7 +23,7 @@ flags/repeat=0
 flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
-flags/srgb=1
+flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false

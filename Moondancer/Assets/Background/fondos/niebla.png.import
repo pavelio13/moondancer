@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/maxresdefault.jpg-97790e662bdd425abd83a2d662a36e8a.stex"
+path="res://.import/niebla.png-d05acd6f52a38ff0caabd301f8518ebe.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Background/maxresdefault.jpg"
-dest_files=[ "res://.import/maxresdefault.jpg-97790e662bdd425abd83a2d662a36e8a.stex" ]
+source_file="res://Assets/Background/fondos/niebla.png"
+dest_files=[ "res://.import/niebla.png-d05acd6f52a38ff0caabd301f8518ebe.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/fondoBosque.png-1de2580bb2f31938043742a682dc9851.stex"
+path="res://.import/ventanaPausa.png-4a6015229ee19a8c3972cce4fb0037ee.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Background/fondoBosque.png"
-dest_files=[ "res://.import/fondoBosque.png-1de2580bb2f31938043742a682dc9851.stex" ]
+source_file="res://Assets/UI/ventanaPausa.png"
+dest_files=[ "res://.import/ventanaPausa.png-4a6015229ee19a8c3972cce4fb0037ee.stex" ]
 
 [params]
 
@@ -23,7 +23,7 @@ flags/repeat=0
 flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
-flags/srgb=1
+flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
