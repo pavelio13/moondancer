@@ -11,5 +11,5 @@ func _on_Detector_body_entered(body):
 			get_parent().get_node("AnimatedSprite").stop()
 			body.set_physics_process(true)
 			yield(get_tree().create_timer(0.5), "timeout")
-			get_tree().change_scene("res://UserInterface/Menu.tscn")
+			get_tree().change_scene("res://Level/Backgrounds/FinalBackground.tscn")
 			

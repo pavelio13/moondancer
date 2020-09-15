@@ -34,6 +34,15 @@ onready var earthButton = $UI/Earth
 onready var fireButton = $UI/Fire
 onready var windButton = $UI/Wind
 
+func _ready():
+	set_physics_process(false)
+	get_node("Fade/FadeEffect").visible = true
+	get_node("Fade/FadeEffect/AnimationPlayer").play_backwards("fade")
+	yield(get_tree().create_timer(2), "timeout")
+	get_node("Fade/FadeEffect").visible = false
+	set_physics_process(true)
+
+
 func _physics_process(delta):
 	var x_input = MAX_SPEED * direction
 	

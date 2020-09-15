@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://UserInterface/Menu.gd" type="Script" id=1]
 [ext_resource path="res://Assets/UI/botonStart.png" type="Texture" id=2]
 [ext_resource path="res://Assets/UI/pantallaTitulo_Moon.png" type="Texture" id=3]
 [ext_resource path="res://Assets/UI/botonSalir.png" type="Texture" id=4]
 [ext_resource path="res://Fonts/MoonCat.tres" type="DynamicFont" id=5]
+[ext_resource path="res://Level/Backgrounds/FadeEffect.tscn" type="PackedScene" id=6]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.839216, 0.0666667, 0.0666667, 1 )
@@ -93,5 +94,10 @@ custom_styles/slider = SubResource( 1 )
 custom_styles/grabber_area_highlight = SubResource( 2 )
 custom_styles/grabber_area = SubResource( 3 )
 value = 50.0
+
+[node name="FadeEffect" parent="." instance=ExtResource( 6 )]
+visible = false
+margin_right = 1280.0
+margin_bottom = 720.0
 [connection signal="pressed" from="Background/Start" to="." method="_on_Start_pressed"]
 [connection signal="pressed" from="Background/Exit" to="." method="_on_Exit_pressed"]

@@ -29,7 +29,6 @@
 [ext_resource path="res://Assets/Map/templo/sueloIzqFino_templo.png" type="Texture" id=27]
 [ext_resource path="res://Assets/Map/templo/techo_templo.png" type="Texture" id=28]
 
-
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 256, 208, 0, 208, 0, 0, 256, 0 )
 
