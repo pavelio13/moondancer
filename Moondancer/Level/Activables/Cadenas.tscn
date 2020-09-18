@@ -19,12 +19,14 @@ texture = ExtResource( 1 )
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Atravesar"]
-position = Vector2( -454.087, 198.982 )
+position = Vector2( -458.182, 174.545 )
 shape = SubResource( 1 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Sprite/Atravesar"]
-position = Vector2( 454.087, 198.982 )
+position = Vector2( 449.992, 174.545 )
 shape = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )
+[connection signal="body_entered" from="Sprite/Atravesar" to="Sprite/Atravesar" method="_on_Atravesar_body_entered"]
+[connection signal="body_exited" from="Sprite/Atravesar" to="Sprite/Atravesar" method="_on_Atravesar_body_exited"]

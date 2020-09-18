@@ -28,6 +28,10 @@ config/icon="res://icon.png"
 
 Stats="*res://Character/Stats.gd"
 
+[debug]
+
+settings/stdout/print_fps=true
+
 [display]
 
 window/size/width=1280

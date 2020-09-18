@@ -8,10 +8,11 @@ func _on_Destruir_area_entered(body):
 		
 		get_parent().get_node("Rebote1").queue_free()
 		get_parent().get_node("Rebote2").queue_free()
+		get_node("CollisionShape2D").queue_free()
 		
 		$Light2D.enabled = true
 		yield(get_tree().create_timer(0.2), "timeout")
-		get_parent().get_node("CollisionShape2D").set_deferred("disabled", true)
+		get_parent().get_node("CollisionShape2D").queue_free()
 		$Light2D.energy = 0.5
 		yield(get_tree().create_timer(0.2), "timeout")
 		$Light2D.energy = 0

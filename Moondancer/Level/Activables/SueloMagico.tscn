@@ -76,4 +76,7 @@ anims/Salto = SubResource( 4 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -8, -176 )
 shape = SubResource( 5 )
-[connection signal="body_entered" from="Sprite/Caida" to="Sprite/Caida" method="_on_Caida1_body_entered"]
+[connection signal="body_entered" from="Sprite/Caida" to="Sprite/Caida" method="_on_Caida_body_entered"]
+[connection signal="body_exited" from="Sprite/Caida" to="Sprite/Caida" method="_on_Caida_body_exited"]
+[connection signal="body_entered" from="Sprite/Subida" to="Sprite/Subida" method="_on_Subida_body_entered"]
+[connection signal="body_exited" from="Sprite/Subida" to="Sprite/Subida" method="_on_Subida_body_exited"]
