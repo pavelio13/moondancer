@@ -6,6 +6,8 @@
 [ext_resource path="res://Assets/Background/fondos/bosque/arboles03.png" type="Texture" id=4]
 
 [node name="ParallaxBackground" type="ParallaxBackground"]
+scale = Vector2( 0.67, 0.67 )
+transform = Transform2D( 0.67, 0, 0, 0.67, 0, 0 )
 
 [node name="Sky" type="ParallaxLayer" parent="."]
 position = Vector2( 0, 1080 )

@@ -35,6 +35,6 @@ func _on_SpawnEarth_body_entered(body):
 		print("Error")
 	
 	get_node("Light2D").enabled = true
-	get_node ("CollisionShape2D").set_deferred("disabled", true)
+	get_node ("CollisionShape2D").queue_free()
 	body.state = 7
 	

@@ -1,7 +1,7 @@
 extends Area2D
 
 
-const SPEED = 3000
+const SPEED = 750
 var velocity = Vector2()
 var direction = 1
 
@@ -24,5 +24,4 @@ func _on_VisibilityNotifier2D_screen_exited():
 
 func _on_Fireball_body_entered(body):
 	if not (body is KinematicBody2D):
-#		$AnimatedSprite.play("destroy")
 		queue_free()

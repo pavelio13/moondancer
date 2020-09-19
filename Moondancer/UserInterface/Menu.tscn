@@ -31,12 +31,10 @@ __meta__ = {
 }
 
 [node name="Start" type="TextureButton" parent="Background"]
-margin_left = 608.0
-margin_top = 232.0
-margin_right = 1808.0
-margin_bottom = 832.0
-grow_horizontal = 2
-grow_vertical = 2
+margin_left = 612.0
+margin_top = 242.0
+margin_right = 1812.0
+margin_bottom = 842.0
 rect_scale = Vector2( 0.4, 0.4 )
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 2 )
@@ -45,11 +43,10 @@ __meta__ = {
 }
 
 [node name="Exit" type="TextureButton" parent="Background"]
-margin_left = 696.0
-margin_top = 504.0
-margin_right = 1896.0
-margin_bottom = 1104.0
-rect_scale = Vector2( 0.25, 0.25 )
+margin_left = 730.0
+margin_top = 510.0
+margin_right = 986.0
+margin_bottom = 638.0
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 4 )
 
