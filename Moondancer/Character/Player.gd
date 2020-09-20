@@ -53,22 +53,18 @@ func _physics_process(delta):
 			
 		if Input.is_action_just_pressed("ui_up"):
 			$Light2D.color = Color("#1edd1e")
-			$Light2D.energy = 0.75
 			state = JUMP
 			
 		if Input.is_action_just_pressed("ui_down") and state != WATERFALL:
 			$Light2D.color = Color("#28aae4")
-			$Light2D.energy = 0.75
 			state = WATERNULL
 			
 		if Input.is_action_just_pressed("ui_right") and state == IDLE:
 			$Light2D.color = Color("#fdfd00")
-			$Light2D.energy = 0.75
 			state = AIR
 			
 		if Input.is_action_just_pressed("ui_left") and state == IDLE:
 			$Light2D.color = Color("#f44623")
-			$Light2D.energy = 0.75
 			state = FIRE
 	
 	if state == IDLE:

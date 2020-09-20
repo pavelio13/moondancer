@@ -11,7 +11,7 @@ script = ExtResource( 3 )
 [node name="Tutorial" parent="." instance=ExtResource( 1 )]
 
 [node name="Player" parent="Tutorial" instance=ExtResource( 2 )]
-position = Vector2( -205.856, -119.044 )
+position = Vector2( -219.356, -102.044 )
 scale = Vector2( 0.66, 0.66 )
 
 [node name="InterfaceLayer" type="CanvasLayer" parent="."]

@@ -40,7 +40,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 0.298039, 0.835294, 0.203922, 0.0980392 ), Color( 0.298039, 0.835294, 0.203922, 0.0980392 ), Color( 0.298039, 0.835294, 0.203922, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 128, 8 )
 
 [node name="SueloMagico" type="StaticBody2D"]
@@ -72,7 +72,7 @@ anims/Salto = SubResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -48 )
-shape = SubResource( 5 )
+shape = SubResource( 6 )
 [connection signal="body_entered" from="Sprite/Caida" to="Sprite/Caida" method="_on_Caida_body_entered"]
 [connection signal="body_exited" from="Sprite/Caida" to="Sprite/Caida" method="_on_Caida_body_exited"]
 [connection signal="body_entered" from="Sprite/Subida" to="Sprite/Subida" method="_on_Subida_body_entered"]
