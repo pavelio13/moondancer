@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pantallaTitulo.png-2c0ec0b6b0c0a385396b4779468eef31.stex"
+path="res://.import/botonSalir.png-edf1e915ad182ae784267ceaedaaeed4.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/UI/pantallaTitulo.png"
-dest_files=[ "res://.import/pantallaTitulo.png-2c0ec0b6b0c0a385396b4779468eef31.stex" ]
+source_file="res://Assets/UI/Buttons/botonSalir.png"
+dest_files=[ "res://.import/botonSalir.png-edf1e915ad182ae784267ceaedaaeed4.stex" ]
 
 [params]
 

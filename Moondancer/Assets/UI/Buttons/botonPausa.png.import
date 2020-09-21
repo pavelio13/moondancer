@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/botonFuego.png-26e132f0c4ca29f26824fd97b504db63.stex"
+path="res://.import/botonPausa.png-924e54ac4b9be9a34152d25dc10ae519.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/UI/botonFuego.png"
-dest_files=[ "res://.import/botonFuego.png-26e132f0c4ca29f26824fd97b504db63.stex" ]
+source_file="res://Assets/UI/Buttons/botonPausa.png"
+dest_files=[ "res://.import/botonPausa.png-924e54ac4b9be9a34152d25dc10ae519.stex" ]
 
 [params]
 

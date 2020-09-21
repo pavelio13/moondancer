@@ -1,20 +1,19 @@
-[gd_scene load_steps=93 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://Assets/Character/fullSpriteSheetNoom.png" type="Texture" id=1]
 [ext_resource path="res://Character/Player.gd" type="Script" id=2]
-[ext_resource path="res://Assets/UI/botonPlanta.png" type="Texture" id=3]
-[ext_resource path="res://Assets/UI/botonAgua.png" type="Texture" id=4]
-[ext_resource path="res://Assets/UI/botonFuego.png" type="Texture" id=5]
-[ext_resource path="res://Assets/UI/botonAire.png" type="Texture" id=6]
+[ext_resource path="res://Assets/UI/Buttons/botonPlanta.png" type="Texture" id=3]
+[ext_resource path="res://Assets/UI/Buttons/botonAgua.png" type="Texture" id=4]
+[ext_resource path="res://Assets/UI/Buttons/botonFuego.png" type="Texture" id=5]
+[ext_resource path="res://Assets/UI/Buttons/botonAire.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Map/luces/light.png" type="Texture" id=7]
 [ext_resource path="res://Level/Backgrounds/FadeEffect.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Assets/UI/botonAceptar.png" type="Texture" id=9]
+[ext_resource path="res://UserInterface/Tutorial.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Sounds/water.wav" type="AudioStream" id=11]
 [ext_resource path="res://Sounds/earth.wav" type="AudioStream" id=12]
 [ext_resource path="res://Sounds/walk.wav" type="AudioStream" id=13]
 [ext_resource path="res://Sounds/fire.wav" type="AudioStream" id=14]
-[ext_resource path="res://Assets/UI/botonPausa.png" type="Texture" id=15]
-[ext_resource path="res://Assets/UI/ventanaTutorial.png" type="Texture" id=16]
+[ext_resource path="res://Assets/UI/Buttons/botonPausa.png" type="Texture" id=15]
 [ext_resource path="res://Assets/Character/fullSpriteSheetNoomShadow - copia.png" type="Texture" id=17]
 [ext_resource path="res://Sounds/portal.wav" type="AudioStream" id=21]
 [ext_resource path="res://Sounds/air.wav" type="AudioStream" id=22]
@@ -43,36 +42,10 @@ void fragment()
 
 [sub_resource type="ShaderMaterial" id=2]
 shader = SubResource( 1 )
-shader_param/glow_color = Color( 0.0980392, 0.294118, 0.541176, 1 )
-shader_param/emission_teture = ExtResource( 17 )
-
-[sub_resource type="Shader" id=3]
-code = "shader_type canvas_item;
-
-uniform sampler2D emission_teture;
-uniform vec4 glow_color : hint_color = vec4(1.0);
-
-void fragment()
-{
-	vec4 current_color = texture(TEXTURE,UV); // what's our current sprite pixel
-	vec4 emission_color = texture(emission_teture,UV); // what's our current emission pixel
-	
-	if(emission_color.r > 0f) // check if we're not black in the emission color.
-	{
-		COLOR = (emission_color + glow_color) // add brightness corrosponding with the emission pixel
-	}
-	else
-	{
-		COLOR = current_color; // we arent over an emission pixel leave alone
-	}
-}"
-
-[sub_resource type="ShaderMaterial" id=4]
-shader = SubResource( 3 )
 shader_param/glow_color = Color( 0.113725, 0.113725, 0.00392157, 0.819608 )
 shader_param/emission_teture = ExtResource( 17 )
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=3]
 length = 1.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -134,10 +107,10 @@ tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ SubResource( 4 ) ]
+"values": [ SubResource( 2 ) ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=4]
 length = 2.95
 step = 0.05
 tracks/0/type = "value"
@@ -203,7 +176,7 @@ tracks/4/keys = {
 } ]
 }
 
-[sub_resource type="Shader" id=7]
+[sub_resource type="Shader" id=5]
 code = "shader_type canvas_item;
 
 uniform sampler2D emission_teture;
@@ -224,12 +197,12 @@ void fragment()
 	}
 }"
 
-[sub_resource type="ShaderMaterial" id=8]
-shader = SubResource( 7 )
+[sub_resource type="ShaderMaterial" id=6]
+shader = SubResource( 5 )
 shader_param/glow_color = Color( 0.0862745, 0.294118, 0.0666667, 0.537255 )
 shader_param/emission_teture = ExtResource( 17 )
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=7]
 length = 0.9
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -279,10 +252,10 @@ tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ SubResource( 8 ) ]
+"values": [ SubResource( 6 ) ]
 }
 
-[sub_resource type="Shader" id=74]
+[sub_resource type="Shader" id=8]
 code = "shader_type canvas_item;
 
 uniform sampler2D emission_teture;
@@ -303,8 +276,8 @@ void fragment()
 	}
 }"
 
-[sub_resource type="ShaderMaterial" id=14]
-shader = SubResource( 74 )
+[sub_resource type="ShaderMaterial" id=9]
+shader = SubResource( 8 )
 shader_param/glow_color = Color( 0.776471, 0.196078, 0.0823529, 0.788235 )
 shader_param/emission_teture = ExtResource( 17 )
 
@@ -374,7 +347,7 @@ tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ SubResource( 14 ) ]
+"values": [ SubResource( 9 ) ]
 }
 
 [sub_resource type="Animation" id=11]
@@ -471,7 +444,7 @@ tracks/3/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=13]
 length = 0.6
 loop = true
 step = 0.05
@@ -526,6 +499,32 @@ tracks/3/keys = {
 "values": [ null ]
 }
 
+[sub_resource type="Shader" id=14]
+code = "shader_type canvas_item;
+
+uniform sampler2D emission_teture;
+uniform vec4 glow_color : hint_color = vec4(1.0);
+
+void fragment()
+{
+	vec4 current_color = texture(TEXTURE,UV); // what's our current sprite pixel
+	vec4 emission_color = texture(emission_teture,UV); // what's our current emission pixel
+	
+	if(emission_color.r > 0f) // check if we're not black in the emission color.
+	{
+		COLOR = (emission_color + glow_color) // add brightness corrosponding with the emission pixel
+	}
+	else
+	{
+		COLOR = current_color; // we arent over an emission pixel leave alone
+	}
+}"
+
+[sub_resource type="ShaderMaterial" id=15]
+shader = SubResource( 14 )
+shader_param/glow_color = Color( 0.0980392, 0.294118, 0.541176, 1 )
+shader_param/emission_teture = ExtResource( 17 )
+
 [sub_resource type="Animation" id=16]
 length = 1.1
 tracks/0/type = "method"
@@ -576,7 +575,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ SubResource( 2 ) ]
+"values": [ SubResource( 15 ) ]
 }
 
 [sub_resource type="Animation" id=17]
@@ -629,7 +628,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ SubResource( 2 ) ]
+"values": [ SubResource( 15 ) ]
 }
 
 [sub_resource type="Animation" id=18]
@@ -686,292 +685,13 @@ tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ SubResource( 2 ) ]
+"values": [ SubResource( 15 ) ]
 }
 
 [sub_resource type="RectangleShape2D" id=19]
 extents = Vector2( 23.7476, 45.8651 )
 
-[sub_resource type="AtlasTexture" id=20]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 0, 640, 128, 128 )
-
-[sub_resource type="AtlasTexture" id=21]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 128, 640, 128, 128 )
-
-[sub_resource type="AtlasTexture" id=22]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 256, 640, 128, 128 )
-
-[sub_resource type="AtlasTexture" id=23]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 384, 640, 128, 128 )
-
-[sub_resource type="AtlasTexture" id=24]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 512, 640, 128, 128 )
-
-[sub_resource type="AtlasTexture" id=25]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 640, 640, 128, 128 )
-
-[sub_resource type="AtlasTexture" id=26]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 768, 640, 128, 128 )
-
-[sub_resource type="AtlasTexture" id=27]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 896, 640, 128, 128 )
-
-[sub_resource type="AtlasTexture" id=28]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 1024, 640, 128, 128 )
-
-[sub_resource type="AtlasTexture" id=29]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 640, 512, 128, 128 )
-
-[sub_resource type="AtlasTexture" id=30]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 768, 512, 128, 128 )
-
-[sub_resource type="AtlasTexture" id=31]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 896, 512, 128, 128 )
-
-[sub_resource type="AtlasTexture" id=32]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 1024, 512, 128, 128 )
-
-[sub_resource type="AtlasTexture" id=33]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 1152, 512, 128, 128 )
-
-[sub_resource type="AtlasTexture" id=34]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 1280, 512, 128, 128 )
-
-[sub_resource type="AtlasTexture" id=35]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 1408, 512, 128, 128 )
-
-[sub_resource type="AtlasTexture" id=36]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 1536, 512, 128, 128 )
-
-[sub_resource type="AtlasTexture" id=37]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 0, 256, 128, 128 )
-
-[sub_resource type="AtlasTexture" id=38]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 128, 256, 128, 128 )
-
-[sub_resource type="AtlasTexture" id=39]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 256, 256, 128, 128 )
-
-[sub_resource type="AtlasTexture" id=40]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 384, 256, 128, 128 )
-
-[sub_resource type="AtlasTexture" id=41]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 512, 256, 128, 128 )
-
-[sub_resource type="AtlasTexture" id=42]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 640, 256, 128, 128 )
-
-[sub_resource type="AtlasTexture" id=43]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 1024, 256, 128, 128 )
-
-[sub_resource type="AtlasTexture" id=44]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 1152, 256, 128, 128 )
-
-[sub_resource type="AtlasTexture" id=45]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 1280, 256, 128, 128 )
-
-[sub_resource type="AtlasTexture" id=46]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 1408, 256, 128, 128 )
-
-[sub_resource type="AtlasTexture" id=47]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 1536, 256, 128, 128 )
-
-[sub_resource type="AtlasTexture" id=48]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 0, 384, 128, 128 )
-
-[sub_resource type="AtlasTexture" id=49]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 128, 384, 128, 128 )
-
-[sub_resource type="AtlasTexture" id=50]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 256, 384, 128, 128 )
-
-[sub_resource type="AtlasTexture" id=51]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 384, 384, 128, 128 )
-
-[sub_resource type="AtlasTexture" id=52]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 512, 384, 128, 128 )
-
-[sub_resource type="AtlasTexture" id=53]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 640, 384, 128, 128 )
-
-[sub_resource type="AtlasTexture" id=54]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 768, 384, 128, 128 )
-
-[sub_resource type="AtlasTexture" id=55]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 896, 384, 128, 128 )
-
-[sub_resource type="AtlasTexture" id=56]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 1024, 384, 128, 128 )
-
-[sub_resource type="AtlasTexture" id=57]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 1152, 384, 128, 128 )
-
-[sub_resource type="AtlasTexture" id=58]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 1280, 384, 128, 128 )
-
-[sub_resource type="AtlasTexture" id=59]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 1408, 384, 128, 128 )
-
-[sub_resource type="AtlasTexture" id=60]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 0, 512, 128, 128 )
-
-[sub_resource type="AtlasTexture" id=61]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 128, 512, 128, 128 )
-
-[sub_resource type="AtlasTexture" id=62]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 256, 512, 128, 128 )
-
-[sub_resource type="AtlasTexture" id=63]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 384, 512, 128, 128 )
-
-[sub_resource type="AtlasTexture" id=64]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 512, 512, 128, 128 )
-
-[sub_resource type="AtlasTexture" id=65]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 512, 512, 128, 128 )
-
-[sub_resource type="AtlasTexture" id=66]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 384, 512, 128, 128 )
-
-[sub_resource type="AtlasTexture" id=67]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 256, 512, 128, 128 )
-
-[sub_resource type="AtlasTexture" id=68]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 128, 512, 128, 128 )
-
-[sub_resource type="AtlasTexture" id=69]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 0, 512, 128, 128 )
-
-[sub_resource type="SpriteFrames" id=70]
-animations = [ {
-"frames": [ SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ) ],
-"loop": true,
-"name": "earthTutorial",
-"speed": 7.0
-}, {
-"frames": [ SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ) ],
-"loop": true,
-"name": "fireTutorial",
-"speed": 7.0
-}, {
-"frames": [ SubResource( 37 ), SubResource( 38 ), SubResource( 39 ), SubResource( 40 ), SubResource( 41 ), SubResource( 42 ), SubResource( 43 ), SubResource( 44 ), SubResource( 45 ), SubResource( 46 ), SubResource( 47 ), null, SubResource( 48 ), SubResource( 49 ), SubResource( 50 ), SubResource( 51 ), SubResource( 52 ), SubResource( 53 ), SubResource( 54 ), SubResource( 55 ), SubResource( 56 ), SubResource( 57 ), SubResource( 58 ), SubResource( 59 ), null ],
-"loop": true,
-"name": "waterTutorial",
-"speed": 7.0
-}, {
-"frames": [ SubResource( 60 ), SubResource( 61 ), SubResource( 62 ), SubResource( 63 ), SubResource( 64 ), null, SubResource( 65 ), SubResource( 66 ), SubResource( 67 ), SubResource( 68 ), SubResource( 69 ) ],
-"loop": true,
-"name": "airTutorial",
-"speed": 7.0
-} ]
-
-[sub_resource type="InputEventAction" id=71]
-action = "ui_accept"
-
-[sub_resource type="ShortCut" id=72]
-shortcut = SubResource( 71 )
-
-[sub_resource type="Environment" id=73]
+[sub_resource type="Environment" id=20]
 background_mode = 4
 fog_color = Color( 0.501961, 0.6, 0.701961, 1 )
 glow_enabled = true
@@ -994,7 +714,7 @@ material = SubResource( 2 )
 texture = ExtResource( 1 )
 vframes = 7
 hframes = 13
-frame = 18
+frame = 52
 __meta__ = {
 "_editor_description_": ""
 }
@@ -1017,16 +737,19 @@ shadow_enabled = true
 shadow_item_cull_mask = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Air = SubResource( 5 )
-anims/Die = SubResource( 6 )
-anims/Earth = SubResource( 9 )
+anims/Air = SubResource( 3 )
+anims/Die = SubResource( 4 )
+anims/Earth = SubResource( 7 )
 anims/Fire = SubResource( 10 )
 anims/PortalIn = SubResource( 11 )
 anims/PortalOut = SubResource( 12 )
-anims/Walk = SubResource( 15 )
+anims/Walk = SubResource( 13 )
 anims/WaterFall = SubResource( 16 )
 anims/WaterNull = SubResource( 17 )
 anims/WaterWall = SubResource( 18 )
+
+[node name="FireballPosition" type="Position2D" parent="."]
+position = Vector2( 21.098, -18.943 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -1089,51 +812,8 @@ anchor_bottom = 1.0
 margin_right = 0.0
 margin_bottom = 0.0
 
-[node name="Tutorial" type="Control" parent="."]
+[node name="Tutorial" parent="." instance=ExtResource( 9 )]
 visible = false
-light_mask = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Panel" type="TextureRect" parent="Tutorial"]
-light_mask = 2
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -533.0
-margin_top = -320.0
-margin_right = 534.0
-margin_bottom = 320.0
-texture = ExtResource( 16 )
-stretch_mode = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Tutorial/Panel"]
-light_mask = 2
-position = Vector2( 409.817, 305.685 )
-scale = Vector2( 3, 3 )
-frames = SubResource( 70 )
-animation = "airTutorial"
-
-[node name="Accept" type="TextureButton" parent="Tutorial/Panel"]
-light_mask = 2
-margin_left = 758.873
-margin_top = 440.28
-margin_right = 886.873
-margin_bottom = 512.28
-mouse_default_cursor_shape = 2
-shortcut = SubResource( 72 )
-texture_normal = ExtResource( 9 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Position2D" type="Position2D" parent="."]
-position = Vector2( 21.098, -18.943 )
 
 [node name="Sounds" type="Node" parent="."]
 
@@ -1170,5 +850,4 @@ process_parent = true
 physics_process_parent = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 73 )
-[connection signal="pressed" from="Tutorial/Panel/Accept" to="." method="_on_Accept_pressed"]
+environment = SubResource( 20 )

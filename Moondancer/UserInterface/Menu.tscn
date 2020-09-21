@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://UserInterface/Menu.gd" type="Script" id=1]
-[ext_resource path="res://Assets/UI/botonStart.png" type="Texture" id=2]
-[ext_resource path="res://Assets/UI/pantallaTitulo_Moon.png" type="Texture" id=3]
-[ext_resource path="res://Assets/UI/botonSalir.png" type="Texture" id=4]
+[ext_resource path="res://Assets/UI/Buttons/botonStart.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Background/pantallaTitulo.png" type="Texture" id=3]
+[ext_resource path="res://Assets/UI/Buttons/botonSalir.png" type="Texture" id=4]
 [ext_resource path="res://Fonts/MoonCat.tres" type="DynamicFont" id=5]
 [ext_resource path="res://Level/Backgrounds/FadeEffect.tscn" type="PackedScene" id=6]
 

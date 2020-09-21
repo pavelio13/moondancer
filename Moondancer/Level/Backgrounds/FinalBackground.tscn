@@ -2,7 +2,8 @@
 
 [ext_resource path="res://Fonts/MoonCat.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Level/Backgrounds/FinalBackground.gd" type="Script" id=2]
-[ext_resource path="res://Assets/UI/botonAceptar.png" type="Texture" id=3]
+[ext_resource path="res://Assets/UI/Buttons/botonAceptar.png" type="Texture" id=3]
+
 
 [node name="FinalBackground" type="Control"]
 margin_right = 40.0

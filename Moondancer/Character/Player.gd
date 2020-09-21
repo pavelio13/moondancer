@@ -36,6 +36,7 @@ onready var fireButton = $UI/Fire
 onready var windButton = $UI/Wind
 
 func _ready():
+	Stats.spawnpoint = global_position
 	set_physics_process(false)
 	get_node("Fade/FadeEffect").visible = true
 	get_node("Fade/FadeEffect/AnimationPlayer").play_backwards("fade")
@@ -74,7 +75,7 @@ func _physics_process(delta):
 			motion.x += x_input * ACCELERATION * delta * TARGET_FPS
 			motion.x = clamp(motion.x, -MAX_SPEED, MAX_SPEED)
 			$Sprite.flip_h = x_input < 0
-			$Position2D.position.x *= direction
+			$FireballPosition.position.x *= direction
 			if direction == 1:
 				$Light2D2.rotation_degrees = 30
 			else:
@@ -170,7 +171,7 @@ func shoot_fireball():
 	var fireball = FIREBALL.instance()
 	fireball.set_direction(direction)
 	get_parent().add_child(fireball)
-	fireball.position = $Position2D.global_position
+	fireball.position = $FireballPosition.global_position
 	fireball.z_index = 20
 	
 func set_alive():

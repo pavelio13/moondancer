@@ -1,0 +1,215 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Fonts/MOONYCAT.TTF" type="DynamicFontData" id=1]
+[ext_resource path="res://Assets/Background/fondos/fondoBosque.png" type="Texture" id=2]
+[ext_resource path="res://Assets/UI/ventanaTutorial.png" type="Texture" id=3]
+[ext_resource path="res://Assets/UI/Buttons/botonStart.png" type="Texture" id=4]
+[ext_resource path="res://Assets/UI/Buttons/botonAceptar.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Background/fondos/paredCueva.png" type="Texture" id=6]
+[ext_resource path="res://Level/Menus/Mundo1.gd" type="Script" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 74
+outline_size = 5
+outline_color = Color( 0.129412, 0.113725, 0.196078, 1 )
+extra_spacing_char = 4
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "next"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("LevelSelector/Preview1:rect_position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 376, 248 ), Vector2( -1624, 248 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("LevelSelector/Preview2:rect_position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 2376, 248 ), Vector2( 376, 248 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("LevelSelector/Level1:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 248, 120 ), Vector2( -1752, 120 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("LevelSelector/Level2:rect_position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 2248, 133 ), Vector2( 248, 133 ) ]
+}
+
+[node name="Mundo1" type="Control"]
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LevelSelector" type="TextureRect" parent="."]
+light_mask = 4
+margin_left = -616.0
+margin_top = -384.0
+margin_right = 616.0
+margin_bottom = 385.0
+texture = ExtResource( 3 )
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Level1" type="Label" parent="LevelSelector"]
+light_mask = 4
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -368.0
+margin_top = 120.0
+margin_right = 367.001
+margin_bottom = 224.0
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.215686, 0.196078, 0.333333, 1 )
+text = "Level 1: Nighty Forest"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Level2" type="Label" parent="LevelSelector"]
+light_mask = 4
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 1791.17
+margin_top = 133.0
+margin_right = 2575.17
+margin_bottom = 237.0
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.215686, 0.196078, 0.333333, 1 )
+text = "Level 2: Shawty Forest"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Preview1" type="TextureRect" parent="LevelSelector"]
+light_mask = 4
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -240.0
+margin_top = -136.5
+margin_right = 239.99
+margin_bottom = 133.5
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Preview2" type="TextureRect" parent="LevelSelector"]
+light_mask = 4
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 1760.0
+margin_top = -136.5
+margin_right = 2240.0
+margin_bottom = 133.5
+texture = ExtResource( 6 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Next" type="TextureButton" parent="LevelSelector"]
+modulate = Color( 0.494118, 0.290196, 0.717647, 1 )
+light_mask = 4
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -320.0
+margin_top = -40.4999
+margin_right = -192.0
+margin_bottom = 44.5001
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Prev" type="TextureButton" parent="LevelSelector"]
+modulate = Color( 0.494118, 0.290196, 0.717647, 1 )
+light_mask = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 200.0
+margin_top = -40.5001
+margin_right = 328.0
+margin_bottom = 44.4999
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Accept" type="TextureButton" parent="LevelSelector"]
+modulate = Color( 0.254902, 0.117647, 0.745098, 1 )
+light_mask = 4
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -254.0
+margin_top = -214.0
+margin_right = 254.0
+margin_bottom = -134.0
+texture_normal = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/next = SubResource( 2 )
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+[connection signal="pressed" from="LevelSelector/Next" to="." method="_on_Next_pressed"]
+[connection signal="pressed" from="LevelSelector/Prev" to="." method="_on_Prev_pressed"]
+[connection signal="pressed" from="LevelSelector/Accept" to="." method="_on_Accept_pressed"]
