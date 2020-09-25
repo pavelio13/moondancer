@@ -1,6 +1,6 @@
-extends Control
+extends CanvasLayer
 
 
 func _on_Accept_pressed():
-	visible = false
+	$Panel.visible = false
 	get_parent().animationPlayer.play("PortalOut")

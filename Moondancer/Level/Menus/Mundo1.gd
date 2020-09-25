@@ -1,4 +1,4 @@
-extends Control
+extends CanvasLayer
 
 var start_position_seconds = 0.0
 

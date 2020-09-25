@@ -26,7 +26,7 @@ var motion = Vector2.ZERO
 var state = IDLE
 var direction = 1
 var last_pos = 0.0
-var is_alive = true
+var is_alive = false
 
 onready var sprite = $Sprite
 onready var animationPlayer = $AnimationPlayer
@@ -38,11 +38,11 @@ onready var windButton = $UI/Wind
 func _ready():
 	Stats.spawnpoint = global_position
 	set_physics_process(false)
+#	get_tree().paused = true
 	get_node("Fade/FadeEffect").visible = true
 	get_node("Fade/FadeEffect/AnimationPlayer").play_backwards("fade")
 	yield(get_tree().create_timer(2), "timeout")
 	get_node("Fade/FadeEffect").visible = false
-	set_physics_process(true)
 
 
 func _physics_process(delta):
@@ -129,7 +129,7 @@ func _physics_process(delta):
 		if motion.x != 0:
 			animationPlayer.play("PortalIn")
 			yield(get_tree().create_timer(0.7), "timeout")
-			get_node("Tutorial").visible = true
+			get_node("Tutorial/Panel").visible = true
 			
 			if Stats.earthButton:
 				get_node("Tutorial/Panel/AnimatedSprite").play("earthTutorial")
