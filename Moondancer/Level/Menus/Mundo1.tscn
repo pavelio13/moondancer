@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Fonts/MOONYCAT.TTF" type="DynamicFontData" id=1]
 [ext_resource path="res://Assets/Background/fondos/fondoBosque.png" type="Texture" id=2]
@@ -66,6 +66,22 @@ tracks/3/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector2( 2248, 112 ), Vector2( 248, 112 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "out"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("LevelSelector:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
 [node name="Mundo1" type="CanvasLayer"]
@@ -204,6 +220,7 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/next = SubResource( 2 )
+anims/out = SubResource( 3 )
 [connection signal="pressed" from="LevelSelector/Next" to="." method="_on_Next_pressed"]
 [connection signal="pressed" from="LevelSelector/Prev" to="." method="_on_Prev_pressed"]
 [connection signal="pressed" from="LevelSelector/Accept" to="." method="_on_Accept_pressed"]

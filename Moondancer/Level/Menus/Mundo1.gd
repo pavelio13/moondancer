@@ -16,7 +16,12 @@ func _on_Prev_pressed():
 		start_position_seconds -= 1.2
 
 
-func _on_Accept_pressed():	
+func _on_Accept_pressed():
+	$AnimationPlayer.play("out")
+	yield($AnimationPlayer, "animation_finished")
+	get_parent().get_parent().get_node("FadeWorld/FadeEffect/AnimationPlayer").play("fade_in")
+	yield(get_parent().get_parent().get_node("FadeWorld/FadeEffect/AnimationPlayer"), "animation_finished")
+	
 	if start_position_seconds == 0:
 		
 		get_parent().get_parent().queue_free()

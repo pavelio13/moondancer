@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Level/TileSet.tres" type="TileSet" id=1]
 [ext_resource path="res://Level/Activables/ReboteDch.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Level/Menus/Intro.gd" type="Script" id=4]
 [ext_resource path="res://Assets/UI/Buttons/botonAceptar.png" type="Texture" id=5]
 [ext_resource path="res://Fonts/Mundo.tres" type="DynamicFont" id=6]
+[ext_resource path="res://Level/Backgrounds/FadeEffect.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Sounds/soundtrack.ogg" type="AudioStream" id=8]
 [ext_resource path="res://Level/Backgrounds/TutorialBackground.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Level/Activables/ReboteIzq.gd" type="Script" id=15]
@@ -86,6 +87,18 @@ texture_normal = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Fade" type="CanvasLayer" parent="."]
+pause_mode = 2
+layer = 111
+
+[node name="FadeEffect" parent="Fade" instance=ExtResource( 7 )]
+pause_mode = 2
+
+[node name="FadeWorld" type="CanvasLayer" parent="."]
+pause_mode = 2
+
+[node name="FadeEffect" parent="FadeWorld" instance=ExtResource( 7 )]
 
 [node name="ParallaxBackground" parent="." instance=ExtResource( 14 )]
 

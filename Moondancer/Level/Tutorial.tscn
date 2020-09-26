@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=2]
+[gd_scene load_steps=66 format=2]
 
 [ext_resource path="res://Level/TileSet.tres" type="TileSet" id=1]
 [ext_resource path="res://Level/Activables/ReboteDch.gd" type="Script" id=2]
@@ -26,11 +26,27 @@
 [ext_resource path="res://Assets/Map/templo/colFuego_apagada.png" type="Texture" id=24]
 [ext_resource path="res://Assets/Map/templo/colPlanta_encendida.png" type="Texture" id=25]
 [ext_resource path="res://Level/Activables/Puerta.tscn" type="PackedScene" id=26]
+[ext_resource path="res://Level/Backgrounds/FadeEffect.tscn" type="PackedScene" id=27]
 [ext_resource path="res://Assets/UI/Buttons/botonAceptar.png" type="Texture" id=28]
 [ext_resource path="res://Level/Menus/Intro.gd" type="Script" id=29]
 
-[sub_resource type="RectangleShape2D" id=8]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 72.0001, 24 )
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 13 )
+region = Rect2( 0, 512, 512, 512 )
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 13 )
+region = Rect2( 512, 512, 512, 512 )
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 13 )
+region = Rect2( 1024, 512, 512, 512 )
 
 [sub_resource type="AtlasTexture" id=5]
 flags = 4
@@ -47,194 +63,179 @@ flags = 4
 atlas = ExtResource( 13 )
 region = Rect2( 1024, 0, 512, 512 )
 
-[sub_resource type="AtlasTexture" id=9]
-flags = 4
-atlas = ExtResource( 13 )
-region = Rect2( 0, 512, 512, 512 )
-
-[sub_resource type="AtlasTexture" id=10]
-flags = 4
-atlas = ExtResource( 13 )
-region = Rect2( 512, 512, 512, 512 )
-
-[sub_resource type="AtlasTexture" id=11]
-flags = 4
-atlas = ExtResource( 13 )
-region = Rect2( 1024, 512, 512, 512 )
-
-[sub_resource type="SpriteFrames" id=12]
+[sub_resource type="SpriteFrames" id=8]
 animations = [ {
+"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 2 ), SubResource( 4 ) ],
+"loop": true,
+"name": "tierraEncendido",
+"speed": 6.0
+}, {
 "frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 5 ), SubResource( 7 ) ],
 "loop": true,
 "name": "tierraApagado",
 "speed": 6.0
-}, {
-"frames": [ SubResource( 9 ), SubResource( 10 ), SubResource( 9 ), SubResource( 11 ) ],
-"loop": true,
-"name": "tierraEncendido",
-"speed": 6.0
 } ]
 
-[sub_resource type="AtlasTexture" id=13]
+[sub_resource type="AtlasTexture" id=9]
 flags = 4
 atlas = ExtResource( 9 )
 region = Rect2( 0, 192, 128, 192 )
 
-[sub_resource type="AtlasTexture" id=14]
+[sub_resource type="AtlasTexture" id=10]
 flags = 4
 atlas = ExtResource( 9 )
 region = Rect2( 128, 192, 128, 192 )
 
-[sub_resource type="AtlasTexture" id=15]
+[sub_resource type="AtlasTexture" id=11]
 flags = 4
 atlas = ExtResource( 9 )
 region = Rect2( 0, 0, 128, 192 )
 
-[sub_resource type="AtlasTexture" id=16]
+[sub_resource type="AtlasTexture" id=12]
 flags = 4
 atlas = ExtResource( 9 )
 region = Rect2( 128, 0, 128, 192 )
 
-[sub_resource type="SpriteFrames" id=17]
+[sub_resource type="SpriteFrames" id=13]
 animations = [ {
-"frames": [ SubResource( 13 ), SubResource( 14 ) ],
+"frames": [ SubResource( 9 ), SubResource( 10 ) ],
 "loop": true,
 "name": "aguaEncendido",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 15 ), SubResource( 16 ) ],
+"frames": [ SubResource( 11 ), SubResource( 12 ) ],
 "loop": true,
 "name": "aguaApagado",
 "speed": 7.0
 } ]
 
-[sub_resource type="AtlasTexture" id=18]
+[sub_resource type="AtlasTexture" id=14]
 flags = 4
 atlas = ExtResource( 10 )
 region = Rect2( 0, 246, 164, 246 )
 
-[sub_resource type="AtlasTexture" id=19]
+[sub_resource type="AtlasTexture" id=15]
 flags = 4
 atlas = ExtResource( 10 )
 region = Rect2( 164, 246, 164, 246 )
 
-[sub_resource type="AtlasTexture" id=20]
+[sub_resource type="AtlasTexture" id=16]
 flags = 4
 atlas = ExtResource( 10 )
 region = Rect2( 328, 246, 164, 246 )
 
-[sub_resource type="AtlasTexture" id=21]
+[sub_resource type="AtlasTexture" id=17]
 flags = 4
 atlas = ExtResource( 10 )
 region = Rect2( 492, 246, 164, 246 )
 
-[sub_resource type="AtlasTexture" id=22]
+[sub_resource type="AtlasTexture" id=18]
 flags = 4
 atlas = ExtResource( 11 )
 region = Rect2( 0, 0, 164, 246 )
 
-[sub_resource type="AtlasTexture" id=23]
+[sub_resource type="AtlasTexture" id=19]
 flags = 4
 atlas = ExtResource( 11 )
 region = Rect2( 164, 0, 164, 246 )
 
-[sub_resource type="AtlasTexture" id=24]
+[sub_resource type="AtlasTexture" id=20]
 flags = 4
 atlas = ExtResource( 11 )
 region = Rect2( 328, 0, 164, 246 )
 
-[sub_resource type="AtlasTexture" id=25]
+[sub_resource type="AtlasTexture" id=21]
 flags = 4
 atlas = ExtResource( 11 )
 region = Rect2( 492, 0, 164, 246 )
 
-[sub_resource type="SpriteFrames" id=26]
+[sub_resource type="SpriteFrames" id=22]
 animations = [ {
-"frames": [ SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ) ],
+"frames": [ SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ) ],
 "loop": true,
 "name": "fuegoEncendido",
 "speed": 8.0
 }, {
-"frames": [ SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ) ],
+"frames": [ SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ) ],
 "loop": true,
 "name": "fuegoApagado",
 "speed": 8.0
 } ]
 
-[sub_resource type="AtlasTexture" id=27]
+[sub_resource type="AtlasTexture" id=23]
 flags = 4
 atlas = ExtResource( 12 )
 region = Rect2( 0, 246, 164, 246 )
 
-[sub_resource type="AtlasTexture" id=28]
+[sub_resource type="AtlasTexture" id=24]
 flags = 4
 atlas = ExtResource( 12 )
 region = Rect2( 164, 246, 164, 246 )
 
-[sub_resource type="AtlasTexture" id=29]
+[sub_resource type="AtlasTexture" id=25]
 flags = 4
 atlas = ExtResource( 12 )
 region = Rect2( 328, 246, 164, 246 )
 
-[sub_resource type="AtlasTexture" id=30]
+[sub_resource type="AtlasTexture" id=26]
 flags = 4
 atlas = ExtResource( 12 )
 region = Rect2( 492, 246, 164, 246 )
 
-[sub_resource type="AtlasTexture" id=31]
+[sub_resource type="AtlasTexture" id=27]
 flags = 4
 atlas = ExtResource( 12 )
 region = Rect2( 656, 246, 164, 246 )
 
-[sub_resource type="AtlasTexture" id=32]
+[sub_resource type="AtlasTexture" id=28]
 flags = 4
 atlas = ExtResource( 12 )
 region = Rect2( 820, 246, 164, 246 )
 
-[sub_resource type="AtlasTexture" id=33]
+[sub_resource type="AtlasTexture" id=29]
 flags = 4
 atlas = ExtResource( 12 )
 region = Rect2( 0, 0, 164, 246 )
 
-[sub_resource type="AtlasTexture" id=34]
+[sub_resource type="AtlasTexture" id=30]
 flags = 4
 atlas = ExtResource( 12 )
 region = Rect2( 164, 0, 164, 246 )
 
-[sub_resource type="AtlasTexture" id=35]
+[sub_resource type="AtlasTexture" id=31]
 flags = 4
 atlas = ExtResource( 12 )
 region = Rect2( 328, 0, 164, 246 )
 
-[sub_resource type="AtlasTexture" id=36]
+[sub_resource type="AtlasTexture" id=32]
 flags = 4
 atlas = ExtResource( 12 )
 region = Rect2( 492, 0, 164, 246 )
 
-[sub_resource type="AtlasTexture" id=37]
+[sub_resource type="AtlasTexture" id=33]
 flags = 4
 atlas = ExtResource( 12 )
 region = Rect2( 656, 0, 164, 246 )
 
-[sub_resource type="AtlasTexture" id=38]
+[sub_resource type="AtlasTexture" id=34]
 flags = 4
 atlas = ExtResource( 12 )
 region = Rect2( 820, 0, 164, 246 )
 
-[sub_resource type="SpriteFrames" id=39]
+[sub_resource type="SpriteFrames" id=35]
 animations = [ {
-"frames": [ SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ) ],
+"frames": [ SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ) ],
 "loop": true,
 "name": "aireEncendido",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ), SubResource( 37 ), SubResource( 38 ) ],
+"frames": [ SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ) ],
 "loop": true,
 "name": "aireApagado",
 "speed": 5.0
 } ]
 
-[sub_resource type="DynamicFont" id=40]
+[sub_resource type="DynamicFont" id=36]
 size = 70
 outline_size = 1
 outline_color = Color( 0.666667, 0.603922, 0.898039, 1 )
@@ -470,21 +471,21 @@ script = ExtResource( 15 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rebotes/Rebote1"]
 position = Vector2( 632, 248 )
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 
 [node name="Rebote2" type="Area2D" parent="Rebotes"]
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rebotes/Rebote2"]
 position = Vector2( 1992, 248 )
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 
 [node name="Rebote3" type="Area2D" parent="Rebotes"]
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rebotes/Rebote3"]
 position = Vector2( 2632, 56 )
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 
 [node name="Rebote4" type="Area2D" parent="Rebotes"]
 script = ExtResource( 2 )
@@ -492,7 +493,7 @@ script = ExtResource( 2 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rebotes/Rebote4"]
 position = Vector2( 3104, 56 )
 scale = Vector2( 1.4, 1 )
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 
 [node name="Rebote5" type="Area2D" parent="Rebotes"]
 script = ExtResource( 16 )
@@ -500,35 +501,35 @@ script = ExtResource( 16 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rebotes/Rebote5"]
 position = Vector2( 3552, 56 )
 scale = Vector2( 1.4, 1 )
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 
 [node name="Rebote6" type="Area2D" parent="Rebotes"]
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rebotes/Rebote6"]
 position = Vector2( 3528, 824 )
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 
 [node name="Rebote7" type="Area2D" parent="Rebotes"]
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rebotes/Rebote7"]
 position = Vector2( 1608, 504 )
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 
 [node name="Rebote8" type="Area2D" parent="Rebotes"]
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rebotes/Rebote8"]
 position = Vector2( 440, 824 )
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 
 [node name="Rebote9" type="Area2D" parent="Rebotes"]
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rebotes/Rebote9"]
 position = Vector2( 1352, 824 )
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 
 [node name="Rebote10" type="Area2D" parent="Rebotes"]
 script = ExtResource( 2 )
@@ -536,49 +537,49 @@ script = ExtResource( 2 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rebotes/Rebote10"]
 position = Vector2( 1760, 824 )
 scale = Vector2( 1.42, 1 )
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 
 [node name="Rebote11" type="Area2D" parent="Rebotes"]
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rebotes/Rebote11"]
 position = Vector2( 2168, 824 )
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 
 [node name="Rebote12" type="Area2D" parent="Rebotes"]
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rebotes/Rebote12"]
 position = Vector2( 1976, 568 )
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 
 [node name="Rebote13" type="Area2D" parent="Rebotes"]
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rebotes/Rebote13"]
 position = Vector2( 2568, 432 )
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 
 [node name="Rebote14" type="Area2D" parent="Rebotes"]
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rebotes/Rebote14"]
 position = Vector2( 2568, 824 )
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 
 [node name="Rebote15" type="Area2D" parent="Rebotes"]
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rebotes/Rebote15"]
 position = Vector2( 2872, 824 )
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 
 [node name="Rebote16" type="Area2D" parent="Rebotes"]
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rebotes/Rebote16"]
 position = Vector2( 3992, 1048 )
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 
 [node name="Rebote17" type="Area2D" parent="Rebotes"]
 script = ExtResource( 2 )
@@ -586,21 +587,21 @@ script = ExtResource( 2 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rebotes/Rebote17"]
 position = Vector2( 4320, 632 )
 scale = Vector2( 0.75, 1 )
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 
 [node name="Rebote18" type="Area2D" parent="Rebotes"]
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rebotes/Rebote18"]
 position = Vector2( 4728, 632 )
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 
 [node name="Rebote19" type="Area2D" parent="Rebotes"]
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rebotes/Rebote19"]
 position = Vector2( 5448, 888 )
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 
 [node name="Rebote20" type="Area2D" parent="Rebotes"]
 script = ExtResource( 2 )
@@ -608,84 +609,84 @@ script = ExtResource( 2 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rebotes/Rebote20"]
 position = Vector2( 4768, 1016 )
 scale = Vector2( 1.42, 1 )
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 
 [node name="Rebote21" type="Area2D" parent="Rebotes"]
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rebotes/Rebote21"]
 position = Vector2( 2312, 1464 )
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 
 [node name="Rebote22" type="Area2D" parent="Rebotes"]
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rebotes/Rebote22"]
 position = Vector2( 2744, 1464 )
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 
 [node name="Rebote23" type="Area2D" parent="Rebotes"]
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rebotes/Rebote23"]
 position = Vector2( 1720, 1464 )
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 
 [node name="Rebote24" type="Area2D" parent="Rebotes"]
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rebotes/Rebote24"]
 position = Vector2( 1416, 1464 )
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 
 [node name="Rebote25" type="Area2D" parent="Rebotes"]
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rebotes/Rebote25"]
 position = Vector2( 440, 1464 )
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 
 [node name="Rebote26" type="Area2D" parent="Rebotes"]
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rebotes/Rebote26"]
 position = Vector2( 1608, 1080 )
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 
 [node name="Rebote27" type="Area2D" parent="Rebotes"]
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rebotes/Rebote27"]
 position = Vector2( 3848, 1464 )
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 
 [node name="Rebote28" type="Area2D" parent="Rebotes"]
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rebotes/Rebote28"]
 position = Vector2( 4152, 1464 )
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 
 [node name="Rebote29" type="Area2D" parent="Rebotes"]
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rebotes/Rebote29"]
 position = Vector2( 4408, 1656 )
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 
 [node name="Rebote30" type="Area2D" parent="Rebotes"]
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rebotes/Rebote30"]
 position = Vector2( 5624, 2104 )
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 
 [node name="Rebote31" type="Area2D" parent="Rebotes"]
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rebotes/Rebote31"]
 position = Vector2( 5960, 2104 )
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 
 [node name="Rebote32" type="Area2D" parent="Rebotes"]
 script = ExtResource( 2 )
@@ -693,7 +694,7 @@ script = ExtResource( 2 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rebotes/Rebote32"]
 position = Vector2( 6240, 2104 )
 scale = Vector2( 0.75, 1 )
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 
 [node name="Rebote33" type="Area2D" parent="Rebotes"]
 script = ExtResource( 2 )
@@ -701,7 +702,7 @@ script = ExtResource( 2 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rebotes/Rebote33"]
 position = Vector2( 6592, 2104 )
 scale = Vector2( 1.1, 1 )
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 
 [node name="Rebote34" type="Area2D" parent="Rebotes"]
 script = ExtResource( 2 )
@@ -709,70 +710,70 @@ script = ExtResource( 2 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rebotes/Rebote34"]
 position = Vector2( 6976, 2104 )
 scale = Vector2( 1.75, 1 )
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 
 [node name="Rebote35" type="Area2D" parent="Rebotes"]
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rebotes/Rebote35"]
 position = Vector2( 7432, 1976 )
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 
 [node name="Rebote36" type="Area2D" parent="Rebotes"]
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rebotes/Rebote36"]
 position = Vector2( 6968, 1784 )
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 
 [node name="Rebote37" type="Area2D" parent="Rebotes"]
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rebotes/Rebote37"]
 position = Vector2( 7880, 1656 )
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 
 [node name="Rebote38" type="Area2D" parent="Rebotes"]
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rebotes/Rebote38"]
 position = Vector2( 6968, 1400 )
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 
 [node name="Rebote39" type="Area2D" parent="Rebotes"]
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rebotes/Rebote39"]
 position = Vector2( 6664, 1656 )
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 
 [node name="Rebote40" type="Area2D" parent="Rebotes"]
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rebotes/Rebote40"]
 position = Vector2( 5944, 1656 )
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 
 [node name="Rebote41" type="Area2D" parent="Rebotes"]
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rebotes/Rebote41"]
 position = Vector2( 4360, 1016 )
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 
 [node name="Rebote42" type="Area2D" parent="Rebotes"]
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rebotes/Rebote42"]
 position = Vector2( 2296, 632 )
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 
 [node name="Rebote43" type="Area2D" parent="Rebotes"]
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rebotes/Rebote43"]
 position = Vector2( 3912, -136 )
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 
 [node name="Rebote44" type="Area2D" parent="Rebotes"]
 script = ExtResource( 2 )
@@ -780,7 +781,7 @@ script = ExtResource( 2 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rebotes/Rebote44"]
 position = Vector2( 4352, -136 )
 scale = Vector2( 1.75, 1 )
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 
 [node name="Rebote45" type="Area2D" parent="Rebotes"]
 script = ExtResource( 2 )
@@ -788,71 +789,72 @@ script = ExtResource( 2 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rebotes/Rebote45"]
 position = Vector2( 4768, -136 )
 scale = Vector2( 0.75, 1 )
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 
 [node name="Rebote46" type="Area2D" parent="Rebotes"]
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rebotes/Rebote46"]
 position = Vector2( 5128, -328 )
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 
 [node name="Rebote47" type="Area2D" parent="Rebotes"]
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rebotes/Rebote47"]
 position = Vector2( 5512, -520 )
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 
 [node name="Rebote48" type="Area2D" parent="Rebotes"]
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rebotes/Rebote48"]
 position = Vector2( 9544, -1480 )
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 
 [node name="Rebote49" type="Area2D" parent="Rebotes"]
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rebotes/Rebote49"]
 position = Vector2( 9912, -1480 )
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 
 [node name="Rebote50" type="Area2D" parent="Rebotes"]
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rebotes/Rebote50"]
 position = Vector2( 10888, -1480 )
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 
 [node name="Rebote51" type="Area2D" parent="Rebotes"]
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rebotes/Rebote51"]
 position = Vector2( 11256, -1480 )
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 
 [node name="Rebote52" type="Area2D" parent="Rebotes"]
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rebotes/Rebote52"]
 position = Vector2( 13416, -1488 )
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 
 [node name="Rebote53" type="Area2D" parent="Rebotes"]
 script = ExtResource( 15 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rebotes/Rebote53"]
 position = Vector2( -264, 56 )
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 
 [node name="SpawnEarth" parent="." instance=ExtResource( 7 )]
 position = Vector2( 224, 0 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="SpawnEarth"]
 position = Vector2( 0, -184 )
-frames = SubResource( 12 )
+frames = SubResource( 8 )
 animation = "tierraApagado"
+frame = 1
 playing = true
 
 [node name="SpawnWater" parent="." instance=ExtResource( 7 )]
@@ -861,9 +863,8 @@ position = Vector2( 10344, -1536 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="SpawnWater"]
 position = Vector2( 24.0007, -64.0002 )
 scale = Vector2( 1.5, 1.5 )
-frames = SubResource( 17 )
+frames = SubResource( 13 )
 animation = "aguaApagado"
-frame = 1
 playing = true
 
 [node name="SpawnFire" parent="." instance=ExtResource( 7 )]
@@ -872,9 +873,8 @@ position = Vector2( 3176, 768 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="SpawnFire"]
 position = Vector2( 23.9998, -72 )
 scale = Vector2( 1.25, 1.25 )
-frames = SubResource( 26 )
+frames = SubResource( 22 )
 animation = "fuegoApagado"
-frame = 1
 playing = true
 
 [node name="SpawnAir" parent="." instance=ExtResource( 7 )]
@@ -882,9 +882,9 @@ position = Vector2( 5056, 1600 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="SpawnAir"]
 position = Vector2( -0.000518799, -48 )
-frames = SubResource( 39 )
+frames = SubResource( 35 )
 animation = "aireApagado"
-frame = 2
+frame = 5
 playing = true
 
 [node name="Intro" type="CanvasLayer" parent="."]
@@ -895,7 +895,7 @@ pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_bottom = -208.0
-custom_fonts/font = SubResource( 40 )
+custom_fonts/font = SubResource( 36 )
 custom_colors/font_color = Color( 0.0980392, 0.109804, 0.294118, 1 )
 text = "LEVEL 1
 NIGTHY FOREST"
@@ -921,6 +921,12 @@ texture_normal = ExtResource( 28 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Fade" type="CanvasLayer" parent="."]
+pause_mode = 2
+layer = 111
+
+[node name="FadeEffect" parent="Fade" instance=ExtResource( 27 )]
 
 [node name="ParallaxBackground" parent="." instance=ExtResource( 14 )]
 

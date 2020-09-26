@@ -38,11 +38,7 @@ onready var windButton = $UI/Wind
 func _ready():
 	Stats.spawnpoint = global_position
 	set_physics_process(false)
-#	get_tree().paused = true
-	get_node("Fade/FadeEffect").visible = true
-	get_node("Fade/FadeEffect/AnimationPlayer").play_backwards("fade")
 	yield(get_tree().create_timer(2), "timeout")
-	get_node("Fade/FadeEffect").visible = false
 
 
 func _physics_process(delta):
