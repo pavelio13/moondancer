@@ -1,13 +1,13 @@
 [gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Fonts/MOONYCAT.TTF" type="DynamicFontData" id=1]
-[ext_resource path="res://Assets/Background/fondos/fondoBosque.png" type="Texture" id=2]
-[ext_resource path="res://Assets/UI/ventanaTutorial.png" type="Texture" id=3]
+[ext_resource path="res://Fonts/Mundo.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Level/Mundo1/MenuWorld1.gd" type="Script" id=3]
 [ext_resource path="res://Assets/UI/Buttons/botonStart.png" type="Texture" id=4]
 [ext_resource path="res://Assets/UI/Buttons/botonAceptar.png" type="Texture" id=5]
-[ext_resource path="res://Assets/Background/fondos/paredCueva.png" type="Texture" id=6]
-[ext_resource path="res://Level/Menus/Mundo1.gd" type="Script" id=7]
-[ext_resource path="res://Fonts/Mundo.tres" type="DynamicFont" id=8]
+[ext_resource path="res://Assets/Background/fondos/fondoBosque.png" type="Texture" id=6]
+[ext_resource path="res://Assets/UI/ventanaTutorial.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Background/fondos/paredCueva.png" type="Texture" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 size = 74
@@ -84,14 +84,14 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[node name="Mundo1" type="CanvasLayer"]
-script = ExtResource( 7 )
+[node name="MenuWorld1" type="CanvasLayer"]
+script = ExtResource( 3 )
 
 [node name="LevelSelector" type="TextureRect" parent="."]
 light_mask = 4
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = ExtResource( 3 )
+texture = ExtResource( 7 )
 stretch_mode = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -107,7 +107,7 @@ margin_right = 367.001
 margin_bottom = 216.0
 grow_horizontal = 2
 grow_vertical = 2
-custom_fonts/font = ExtResource( 8 )
+custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0.215686, 0.196078, 0.333333, 1 )
 text = "Level 1: Nighty Forest"
 align = 1
@@ -145,7 +145,7 @@ margin_left = -240.0
 margin_top = -136.0
 margin_right = 239.99
 margin_bottom = 134.0
-texture = ExtResource( 2 )
+texture = ExtResource( 6 )
 expand = true
 stretch_mode = 1
 __meta__ = {
@@ -162,7 +162,7 @@ margin_left = 1760.0
 margin_top = -136.0
 margin_right = 2240.0
 margin_bottom = 134.0
-texture = ExtResource( 6 )
+texture = ExtResource( 8 )
 expand = true
 stretch_mode = 1
 __meta__ = {

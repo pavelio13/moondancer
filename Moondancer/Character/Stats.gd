@@ -14,23 +14,27 @@ func _on_SpawnEarth_body_entered(body):
 	if name == "SpawnEarth":
 		Stats.earthButton = true
 		get_node("AnimatedSprite").play("tierraEncendido")
-		get_parent().get_node("Templo/colPlanta_apagada").visible = false
-		get_parent().get_node("Templo/colPlanta_encendida").visible = true
+#		get_parent().get_node("Templo/colPlanta_apagada").visible = false
+#		get_parent().get_node("Templo/colPlanta_encendida").visible = true
+		
 	elif name == "SpawnWater":
 		Stats.waterButton = true
 		get_node("AnimatedSprite").play("aguaEncendido")
 		get_parent().get_node("Templo/colAgua_apagada").visible = false
 		get_parent().get_node("Templo/colAgua_encendida").visible = true
+	
 	elif name == "SpawnFire":
 		Stats.fireButton = true
 		get_node("AnimatedSprite").play("fuegoEncendido")
 		get_parent().get_node("Templo/colFuego_apagada").visible = false
 		get_parent().get_node("Templo/colFuego_encendida").visible = true
+	
 	elif name == "SpawnAir":
 		Stats.airButton = true
 		get_node("AnimatedSprite").play("aireEncendido")
 		get_parent().get_node("Templo/colAire_apagada").visible = false
 		get_parent().get_node("Templo/colAire_encendida").visible = true
+	
 	else:
 		print("Error")
 	

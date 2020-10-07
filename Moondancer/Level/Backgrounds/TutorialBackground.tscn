@@ -6,52 +6,48 @@
 [ext_resource path="res://Assets/Background/fondos/bosque/arboles03.png" type="Texture" id=4]
 
 [node name="ParallaxBackground" type="ParallaxBackground"]
-scale = Vector2( 0.67, 0.67 )
-transform = Transform2D( 0.67, 0, 0, 0.67, 0, 0 )
+scale = Vector2( 0.5, 0.5 )
+transform = Transform2D( 0.5, 0, 0, 0.5, 0, 0 )
 
 [node name="Sky" type="ParallaxLayer" parent="."]
-position = Vector2( 0, 1080 )
-scale = Vector2( 2, 2 )
+position = Vector2( 0, 820 )
 motion_scale = Vector2( 0, 0 )
 
 [node name="Sprite" type="Sprite" parent="Sky"]
 position = Vector2( 0, -540 )
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 0, 0, 24000, 1080 )
+region_rect = Rect2( 0, 0, 19200, 1080 )
 
 [node name="Trees3" type="ParallaxLayer" parent="."]
-position = Vector2( 0, 1080 )
-scale = Vector2( 2, 2 )
+position = Vector2( 0, 820 )
 motion_scale = Vector2( 0.1, 0 )
 
 [node name="Sprite" type="Sprite" parent="Trees3"]
 position = Vector2( 0, -540 )
 texture = ExtResource( 4 )
 region_enabled = true
-region_rect = Rect2( 0, 0, 24000, 1080 )
+region_rect = Rect2( 0, 0, 19200, 1080 )
 
 [node name="Trees2" type="ParallaxLayer" parent="."]
-position = Vector2( 0, 1080 )
-scale = Vector2( 2, 2 )
+position = Vector2( 0, 820 )
 motion_scale = Vector2( 0.2, 0 )
 
 [node name="Sprite" type="Sprite" parent="Trees2"]
 position = Vector2( 0, -540 )
 texture = ExtResource( 3 )
 region_enabled = true
-region_rect = Rect2( 0, 0, 24000, 1080 )
+region_rect = Rect2( 0, 0, 19200, 1080 )
 __meta__ = {
 "_editor_description_": ""
 }
 
 [node name="Trees1" type="ParallaxLayer" parent="."]
-position = Vector2( 0, 1080 )
-scale = Vector2( 2, 2 )
+position = Vector2( 0, 820 )
 motion_scale = Vector2( 0.3, 0 )
 
 [node name="Sprite" type="Sprite" parent="Trees1"]
 position = Vector2( 0, -540 )
 texture = ExtResource( 2 )
 region_enabled = true
-region_rect = Rect2( 0, 0, 24000, 1080 )
+region_rect = Rect2( 0, 0, 19200, 1080 )

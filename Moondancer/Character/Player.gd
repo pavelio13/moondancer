@@ -36,6 +36,7 @@ onready var fireButton = $UI/Fire
 onready var windButton = $UI/Wind
 
 func _ready():
+#	position = get_parent().get_node("Spawn")
 	Stats.spawnpoint = global_position
 	set_physics_process(false)
 	yield(get_tree().create_timer(2), "timeout")
@@ -124,7 +125,7 @@ func _physics_process(delta):
 		changeButtons(false, false, false, false)
 		if motion.x != 0:
 			animationPlayer.play("PortalIn")
-			yield(get_tree().create_timer(0.7), "timeout")
+			yield(animationPlayer, "animation_finished")
 			get_node("Tutorial/Panel").visible = true
 			
 			if Stats.earthButton:
