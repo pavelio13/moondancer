@@ -11,8 +11,6 @@
 [ext_resource path="res://Level/Backgrounds/TutorialBackground.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Level/Activables/ReboteIzq.gd" type="Script" id=15]
 
-
-
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 64.0002, 128 )
 

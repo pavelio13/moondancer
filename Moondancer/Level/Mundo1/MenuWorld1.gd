@@ -24,7 +24,7 @@ func _on_Accept_pressed():
 		
 		get_parent().get_parent().queue_free()
 		
-		var next_level = load("res://Level/Level1-1.tscn").instance()
+		var next_level = load("res://Level/Mundo1/Level1-1.tscn").instance()
 		var player = load("res://Character/Player.tscn").instance()
 		
 		player.global_position = next_level.get_node("Spawn").position

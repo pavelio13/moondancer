@@ -126,16 +126,6 @@ func _physics_process(delta):
 		if motion.x != 0:
 			animationPlayer.play("PortalIn")
 			yield(animationPlayer, "animation_finished")
-			get_node("Tutorial/Panel").visible = true
-			
-			if Stats.earthButton:
-				get_node("Tutorial/Panel/AnimatedSprite").play("earthTutorial")
-			if Stats.waterButton:
-				get_node("Tutorial/Panel/AnimatedSprite").play("waterTutorial")
-			if Stats.fireButton:
-				get_node("Tutorial/Panel/AnimatedSprite").play("fireTutorial")
-			if Stats.airButton:
-				get_node("Tutorial/Panel/AnimatedSprite").play("airTutorial")
 			
 		motion.x = 0
 		
