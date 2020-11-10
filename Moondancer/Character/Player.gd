@@ -36,7 +36,7 @@ onready var fireButton = $UI/Fire
 onready var windButton = $UI/Wind
 
 func _ready():
-#	position = get_parent().get_node("Spawn")
+	global_position = get_parent().get_node("Spawn").position
 	Stats.spawnpoint = global_position
 	set_physics_process(false)
 	yield(get_tree().create_timer(2), "timeout")
@@ -83,14 +83,15 @@ func _physics_process(delta):
 			animationPlayer.play("Die")
 			is_alive = false
 			set_physics_process(false)
-			yield(get_tree().create_timer(1.5), "timeout")
+			yield(get_tree().create_timer(1.6), "timeout")
 			position = Stats.spawnpoint
 			direction = Stats.direction
+			yield(animationPlayer, "animation_finished")
 			
 		last_pos = position.x
 	
 	elif state == WATERWALL:
-		changeButtons(true, false, false, false)
+		changeButtons(false, false, false, false)
 		animationPlayer.play("WaterWall")
 		
 	elif state == WATERNULL:
@@ -132,7 +133,7 @@ func _physics_process(delta):
 	else:
 		print("Error")
 	
-	motion.y += GRAVITY * delta * TARGET_FPS	
+	motion.y += GRAVITY * delta * TARGET_FPS
 	motion = move_and_slide(motion, Vector2.UP)
 
 

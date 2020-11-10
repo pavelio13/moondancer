@@ -11,9 +11,15 @@ func _on_SpawnEarth_body_entered(body):
 	Stats.spawnpoint = body.global_position
 	Stats.direction = body.direction
 	
+	get_node("Light2D").enabled = true
+	get_node ("CollisionShape2D").queue_free()
+	
 	if name == "SpawnEarth":
 		Stats.earthButton = true
 		get_node("AnimatedSprite").play("tierraEncendido")
+		
+		body.state = 7
+		yield(body.animationPlayer, "animation_finished")
 		
 		$Tutorial/Panel/RichTextLabel.bbcode_text = earth_text
 		$Tutorial/Panel/AnimatedSprite.play("earthTutorial")
@@ -27,6 +33,9 @@ func _on_SpawnEarth_body_entered(body):
 		Stats.waterButton = true
 		get_node("AnimatedSprite").play("aguaEncendido")
 		
+		body.state = 7
+		yield(body.animationPlayer, "animation_finished")
+		
 		$Tutorial/Panel/RichTextLabel.bbcode_text = water_text
 		$Tutorial/Panel/AnimatedSprite.play("waterTutorial")
 		$Tutorial/Panel/TextureRect.texture = load("res://Assets/UI/Buttons/botonAgua.png")
@@ -38,6 +47,9 @@ func _on_SpawnEarth_body_entered(body):
 	elif name == "SpawnFire":
 		Stats.fireButton = true
 		get_node("AnimatedSprite").play("fuegoEncendido")
+		
+		body.state = 7
+		yield(body.animationPlayer, "animation_finished")
 		
 		$Tutorial/Panel/RichTextLabel.bbcode_text = fire_text
 		$Tutorial/Panel/AnimatedSprite.play("fireTutorial")
@@ -51,6 +63,9 @@ func _on_SpawnEarth_body_entered(body):
 		Stats.airButton = true
 		get_node("AnimatedSprite").play("aireEncendido")
 		
+		body.state = 7
+		yield(body.animationPlayer, "animation_finished")
+		
 		$Tutorial/Panel/RichTextLabel.bbcode_text = air_text
 		$Tutorial/Panel/AnimatedSprite.play("airTutorial")
 		$Tutorial/Panel/TextureRect.texture = load("res://Assets/UI/Buttons/botonAire.png")
@@ -62,14 +77,20 @@ func _on_SpawnEarth_body_entered(body):
 	else:
 		print("Error")
 	
-	get_node("Light2D").enabled = true
-	get_node ("CollisionShape2D").queue_free()
-	body.state = 7
 	
 	
 func _on_Accept_pressed():
 	$Tutorial/Panel.visible = false
 	get_parent().get_node("Player").animationPlayer.play("PortalOut")
+
+
+func disablePowers():
+	earthButton = false
+	waterButton = false
+	fireButton = false
+	airButton = false
+
+
 
 
 var earth_text = "[color=#29c06b]¡PODER DE TIERRA OBTENIDO!\n\nAhora Noom tendrá la habilidad de saltar gracias al impulso de las semillas del árbol.\n\nPodrás atravesar algunas piedras mágicas (señalizadas con el símbolo) y saltar más alto si pulsas el botón durante más tiempo.[/color]"

@@ -35,7 +35,7 @@ tile_data = PoolIntArray( -983047, 4, 0, -983046, 4, 0, -917514, 4, 0, -917513, 
 script = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Mundo1"]
-position = Vector2( 456, -280 )
+position = Vector2( 1360.98, 118.55 )
 shape = SubResource( 1 )
 
 [node name="Rebotes" type="Node2D" parent="."]
@@ -78,13 +78,12 @@ __meta__ = {
 }
 
 [node name="Accept" type="TextureButton" parent="Intro"]
-visible = false
 modulate = Color( 0.556863, 0.784314, 0.627451, 1 )
 margin_left = 256.0
 margin_top = 224.0
 margin_right = 384.0
 margin_bottom = 296.0
-rect_scale = Vector2( 0.4, 0.4 )
+rect_scale = Vector2( 0.6, 0.6 )
 mouse_filter = 1
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 5 )
@@ -111,6 +110,9 @@ pause_mode = 2
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
 autoplay = true
+
+[node name="Spawn" type="Position2D" parent="."]
+position = Vector2( -615.689, -428.115 )
 [connection signal="body_entered" from="Mundo1" to="Mundo1" method="_on_Mundo_body_entered"]
 [connection signal="body_exited" from="Rebotes/Rebote1" to="Rebotes/Rebote1" method="_on_Rebote1_body_exited"]
 [connection signal="body_exited" from="Rebotes/Rebote2" to="Rebotes/Rebote2" method="_on_Rebote1_body_exited"]

@@ -71,7 +71,7 @@ tracks/3/keys = {
 }
 
 [sub_resource type="Animation" id=2]
-length = 2.95
+length = 2.5
 step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -80,10 +80,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 2.35, 2.45, 2.55, 2.65, 2.75, 2.85 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 78, 79, 80, 81, 82, 83, 84, 85, 86, 10, 9, 8, 7, 6, 5 ]
+"values": [ 78, 79, 80, 81, 82, 83, 84, 85, 86, 10, 9, 8, 7, 6, 5, 0 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:modulate")
@@ -92,7 +92,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.9, 1.4, 2.35, 2.55 ),
+"times": PoolRealArray( 0.9, 1.35, 1.8, 2.5 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
@@ -109,31 +109,31 @@ tracks/2/keys = {
 "update": 1,
 "values": [ true, false ]
 }
-tracks/3/type = "value"
-tracks/3/path = NodePath("Sounds/portal:playing")
+tracks/3/type = "method"
+tracks/3/path = NodePath(".")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 2.35, 2.9 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
-}
-tracks/4/type = "method"
-tracks/4/path = NodePath(".")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 2.9 ),
+"times": PoolRealArray( 2.5 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [ true ],
 "method": "set_physics_process"
 } ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Sounds/portal:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 1.75, 2.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -274,7 +274,7 @@ tracks/4/keys = {
 
 [sub_resource type="Animation" id=7]
 length = 0.7
-step = 0.05
+step = 0.01
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -334,10 +334,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.05 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+"values": [ Color( 1, 1, 1, 1 ) ]
 }
 tracks/2/type = "method"
 tracks/2/path = NodePath(".")
@@ -346,7 +346,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0.55 ),
+"times": PoolRealArray( 0.7 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [ 0 ],
@@ -407,6 +407,18 @@ tracks/2/keys = {
 "args": [  ],
 "method": "set_alive"
 } ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=10]
@@ -549,6 +561,7 @@ light_mask = 2
 texture = ExtResource( 1 )
 vframes = 7
 hframes = 13
+frame = 3
 __meta__ = {
 "_editor_description_": ""
 }
@@ -561,7 +574,6 @@ energy = 0.7
 shadow_enabled = true
 
 [node name="Light2D2" type="Light2D" parent="."]
-visible = false
 light_mask = 2
 rotation = 0.523599
 scale = Vector2( 1.43585, 2.41947 )
@@ -589,7 +601,7 @@ position = Vector2( 21.098, -18.943 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
-position = Vector2( -1.17851, 10.6066 )
+position = Vector2( 0, 13.562 )
 shape = SubResource( 13 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -668,7 +680,6 @@ stream = ExtResource( 21 )
 stream = ExtResource( 23 )
 
 [node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
-visible = false
 scale = Vector2( 88.9169, 48.8476 )
 process_parent = true
 physics_process_parent = true
